@@ -1,0 +1,41 @@
+.background {
+  background-image: image-set(
+    url("/src/img/mainBGI.jpg") 1x,
+    url("/src/img/mainBGI-2x.jpg") 2x
+  );
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 100%;
+  letter-spacing: -0.04em;
+  color: #fff;
+  width: 190px;
+  height: 50px;
+}
+
+.heartIconContainer {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: bottom;
+}
+
+.heartIcon {
+  color: #f6b83d;
+  width: 36px;
+  height: 32px;
+}
