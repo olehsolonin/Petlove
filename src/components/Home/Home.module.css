@@ -4,3 +4,37 @@
   padding: 34px 20px 20px 20px;
   height: 812px;
 }
+
+.topContainer {
+  height: 390px;
+  background-color: #f6b83d;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding: 16px 20px 50px 20px;
+  border-radius: 30px;
+}
+
+.textCoantainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.titleText {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 96%;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.descriptionText {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
