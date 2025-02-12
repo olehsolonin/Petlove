@@ -1,7 +1,7 @@
 .homeContainer {
   min-width: 320px;
   max-width: 374px;
-  padding: 34px 20px 20px 20px;
+  padding: 10px 20px 10px 20px;
   height: 812px;
 }
 
@@ -37,4 +37,46 @@
   line-height: 129%;
   letter-spacing: -0.02em;
   color: #fff;
+}
+
+.photoContainer {
+  border-radius: 30px;
+  width: 335px;
+  height: 402px;
+}
+
+.photoSettings {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+.mainTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: -0.04em;
+  color: #fff;
+  width: 76px;
+  height: 20px;
+}
+
+.heartIconContainer {
+  width: 17px;
+  height: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: bottom;
+}
+
+.heartIcon {
+  color: #fff;
+  width: 15px;
+  height: 13px;
 }
