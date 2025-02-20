@@ -1,0 +1,18 @@
+.PetContainer {
+  border-radius: 30px;
+  width: 335px;
+  height: 280px;
+}
+
+.background {
+  background-image: image-set(
+    url("/src/img/login-mob-1x.jpg") 1x,
+    url("/src/img/login-mob-2x.jpg") 2x
+  );
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,10 +1,11 @@
 import css from "./Header.module.css";
-import Logo from "../Logo/Logo.jsx";
+import LogoBlack from "../LogoBlack/LogoBlack.jsx";
 
 export default function Header() {
   return (
-    <div>
-      <Logo />
+    <div className={css.headerContainer}>
+      <LogoBlack />
+      <div className={css.headerBurgerMenu}>|||</div>
     </div>
   );
 }

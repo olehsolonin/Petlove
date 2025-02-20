@@ -1,0 +1,10 @@
+.headerBurgerMenu {
+  width: 32px;
+  height: 32px;
+}
+
+.headerContainer {
+  display: flex;
+  gap: 227px;
+  align-items: center;
+}
