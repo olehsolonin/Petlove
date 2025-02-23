@@ -1,5 +1,6 @@
 import { Formik, Form, Field } from "formik";
 import css from "./LoginForm.module.css";
+import { NavLink } from "react-router-dom";
 
 export default function LoginForm() {
   return (
@@ -19,7 +20,14 @@ export default function LoginForm() {
             <button type="submit" className={css.button}>
               Log In
             </button>
-            <p className={css.footerText}>Don’t have an account? Register</p>
+            <p className={css.footerText}>
+              Don’t have an account?{" "}
+              <span className={css.registerLink}>
+                <nav className={css.nav}>
+                  <NavLink to="/register">Register</NavLink>
+                </nav>
+              </span>
+            </p>
           </div>
         </Form>
       </Formik>
