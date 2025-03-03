@@ -20,14 +20,12 @@ export default function LoginForm() {
             <button type="submit" className={css.button}>
               Log In
             </button>
-            <p className={css.footerText}>
-              Don’t have an account?{" "}
-              <span className={css.registerLink}>
-                <nav className={css.nav}>
-                  <NavLink to="/register">Register</NavLink>
-                </nav>
-              </span>
-            </p>
+            <p className={css.footerText}>Don’t have an account? </p>
+            <span className={css.registerLink}>
+              <nav className={css.nav}>
+                <NavLink to="/register">Register</NavLink>
+              </nav>
+            </span>
           </div>
         </Form>
       </Formik>
