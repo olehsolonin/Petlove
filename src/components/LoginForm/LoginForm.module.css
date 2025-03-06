@@ -38,7 +38,7 @@
 .fields {
   border: 1px solid rgba(38, 38, 38, 0.15);
   border-radius: 30px;
-  padding: 12px 249px 12px 12px;
+  padding: 12px;
   width: 295px;
   height: 42px;
 }
@@ -83,4 +83,11 @@
   text-decoration: underline;
   text-decoration-skip-ink: none;
   color: #f6b83d;
+}
+
+.loginTextContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
 }
