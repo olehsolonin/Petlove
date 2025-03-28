@@ -1,0 +1,8 @@
+.searchFieldInput {
+  border: 1px solid rgba(38, 38, 38, 0.15);
+  border-radius: 30px;
+  padding: 12px;
+  width: 335px;
+  height: 42px;
+  margin-bottom: 24px;
+}
