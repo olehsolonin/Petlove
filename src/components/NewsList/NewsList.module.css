@@ -2,3 +2,9 @@
   width: 335px;
   height: 2374px;
 }
+
+.newsList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

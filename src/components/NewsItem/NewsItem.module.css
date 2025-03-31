@@ -1,4 +1,83 @@
 .newsItemContainer {
   width: 335px;
-  height: 359px;
+  height: 379px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.descriptionContainer {
+  width: 335px;
+  height: 169px;
+}
+
+.imageContainer {
+  border-radius: 15px;
+  width: 335px;
+  height: 190px;
+}
+
+.imageSettings {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.titleTextWrap {
+  width: 335px;
+  height: 132px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dateLinkWrap {
+  width: 335px;
+  height: 18px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.title {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.03em;
+  color: #262626;
+  width: 335px;
+  height: 40px;
+}
+
+.text {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: #262626;
+  width: 335px;
+  height: 80px;
+}
+
+.dateMarker {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: rgba(38, 38, 38, 0.5);
+}
+
+.link {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: #f6b83d;
 }

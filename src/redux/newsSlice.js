@@ -7,14 +7,13 @@ const slice = createSlice({
 	name: "news",
 	// Початковий стан редюсера слайсу
 	initialState: {
-		items: [
-		],
+		items: [],
 	},
 	// Об'єкт case-редюсерів
 	reducers: {
 		addNews(state, action) {
 			// ✅ Immer замінить це на операцію оновлення
-			state.items.push(action.payload);
+			state.items = action.payload;
 		},
 
 	},
