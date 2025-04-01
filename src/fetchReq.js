@@ -5,8 +5,12 @@ axios.defaults.baseURL = 'https://petlove.b.goit.study/api';
 
 export const fetchNews = async (filter) => {
 
-	const params = new URLSearchParams(filter);
-	const response = await axios.get(`/news?page=1&query=${params}`);
+	const params = new URLSearchParams({
+		_limit: 5,
+		_page: 1,
+	});
+	console.log(params)
+	const response = await axios.get(`/news?keyword=${filter.keyword}&${params}`);
 	// const response = await axios.get(`?${params}`);
 	console.log(response.data);
 	return response.data;

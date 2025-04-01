@@ -7,14 +7,16 @@ import { useSelector } from "react-redux";
 import { fetchNews } from "../../fetchReq.js";
 
 export default function SearchField() {
-  const value = useSelector((state) => state.searchField.request);
+  const value = useSelector((state) => state.searchField.keyword);
   const response = useSelector((state) => state.news.items);
   const dispatch = useDispatch();
   const initialValues = {
-    request: "",
+    keyword: "",
   };
   const handleSubmit = async (values, actions) => {
     console.log(values);
+    const cleanValues = values.keyword;
+    console.log(cleanValues);
     dispatch(reqResult(values)); // ✅ Экшен отправлен
     const res = await fetchNews(values);
 
@@ -29,7 +31,7 @@ export default function SearchField() {
         <Form>
           <Field
             type="text"
-            name="request"
+            name="keyword"
             className={css.searchFieldInput}
             placeholder="Search"
           />

@@ -7,14 +7,14 @@ const searchFieldSlice = createSlice({
 	name: "searchField",
 	// Початковий стан редюсера слайсу
 	initialState: {
-		request: "",
+		keyword: "",
 		response: {},
 	},
 	// Об'єкт case-редюсерів
 	reducers: {
 		reqResult(state, action) {
 			// ✅ Immer замінить це на операцію оновлення
-			state.request = action.payload;
+			state.keyword = action.payload;
 		},
 		resResult(state, action) {
 			// ✅ Immer замінить це на операцію оновлення
