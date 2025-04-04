@@ -2,6 +2,7 @@ import { Formik, Form, Field } from "formik";
 import css from "./LoginForm.module.css";
 import { NavLink } from "react-router-dom";
 import * as Yup from "yup";
+import Title from "../Title/Title";
 
 const initialValues = {
   email: "",
@@ -29,10 +30,13 @@ const FeedbackSchema = Yup.object().shape({
 export default function LoginForm() {
   return (
     <div className={css.formContainer}>
-      <h1 className={css.loginTitle}>Login</h1>
-      <p className={css.loginText}>
-        Welcome! Please enter your credentials to login to the platform:
-      </p>
+      {/* <h1 className={css.loginTitle}>Login</h1> */}
+      <div className={css.titleContainer}>
+        <Title title="Login" className={css.loginTitle} />
+        <p className={css.loginText}>
+          Welcome! Please enter your credentials to login to the platform:
+        </p>
+      </div>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}

@@ -4,6 +4,7 @@ import PetBlockDog from "../PetBlockDog/PetBlockDog.jsx";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { NavLink } from "react-router-dom";
+import Title from "../Title/Title.jsx";
 
 const initialValues = {
   username: "",
@@ -48,7 +49,8 @@ export default function Registration() {
       </div>
       <div className={css.registrationFormContainer}>
         <div className={css.titleTextContainer}>
-          <h1 className={css.registrationTitle}>Registration</h1>
+          {/* <h1 className={css.registrationTitle}>Registration</h1> */}
+          <Title title="Registration" className={css.registrationTitle} />
           <p className={css.registrationText}>
             Thank you for your interest in our platform.
           </p>

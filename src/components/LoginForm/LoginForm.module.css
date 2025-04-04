@@ -1,6 +1,7 @@
 .formContainer {
   display: flex;
   flex-direction: column;
+  gap: 24px;
 }
 
 .loginTitle {
@@ -20,7 +21,7 @@
   line-height: 129%;
   letter-spacing: -0.02em;
   color: #262626;
-  margin-bottom: 24px;
+  /* margin-bottom: 24px; */
 }
 
 .formFields {
@@ -83,6 +84,7 @@
   text-decoration: underline;
   text-decoration-skip-ink: none;
   color: #f6b83d;
+  font-size: 12px;
 }
 
 .loginTextContainer {
@@ -90,4 +92,11 @@
   justify-content: center;
   align-items: center;
   gap: 3px;
+  height: 14px;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
