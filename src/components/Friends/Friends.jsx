@@ -1,9 +1,18 @@
-import css from './Friends.module.css';
+import css from "./Friends.module.css";
+import FriendsList from "../FriendsList/FriendsList.jsx";
+import FriendsItem from "../FriendsItem/FriendsItem.jsx";
+import Header from "../Header/Header.jsx";
+import Title from "../Title/Title.jsx";
 
 export default function Friends() {
   return (
     <div className={css.friendsContainer}>
-      <h1>Salam brat</h1>
+      <Header />
+      <div className={css.titleContainer}>
+        {" "}
+        <Title title="Our friends" />
+      </div>
+      <FriendsList />
     </div>
   );
 }

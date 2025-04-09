@@ -1,0 +1,58 @@
+.friendsItem {
+  border-radius: 15px;
+  width: 335px;
+  height: 184px;
+  background: #fff;
+  padding: 40px 25px 40px 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+}
+
+.logoContainer {
+  border-radius: 100%;
+  width: 80px;
+  height: 80px;
+}
+
+.friendsInfo {
+}
+
+.friendsInfoTitle {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.04em;
+  color: #262626;
+  margin-bottom: 14px;
+}
+
+.friendsDetails {
+  width: 196px;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: #262626;
+}
+
+.ellipsis {
+  display: inline-block;
+  max-width: 196px;
+  height: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+}
+
+.textContainer {
+  max-width: 196px;
+  height: 18px;
+}

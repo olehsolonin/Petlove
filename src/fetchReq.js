@@ -16,3 +16,10 @@ export const fetchNews = async (filter) => {
 	return response.data;
 
 };
+
+export const fetchFriends = async () => {
+	const response = await axios.get(`/friends`);
+	// const response = await axios.get(`?${params}`);
+	console.log(response.data);
+	return response.data;
+};
