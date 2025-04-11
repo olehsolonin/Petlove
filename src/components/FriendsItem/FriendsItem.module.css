@@ -13,9 +13,7 @@
   border-radius: 100%;
   width: 80px;
   height: 80px;
-}
-
-.friendsInfo {
+  object-fit: cover;
 }
 
 .friendsInfoTitle {
@@ -30,7 +28,6 @@
 
 .friendsDetails {
   width: 196px;
-  height: 70px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -42,17 +39,35 @@
   color: #262626;
 }
 
-.ellipsis {
-  display: inline-block;
-  max-width: 196px;
-  height: 18px;
+.textRow {
+  display: flex;
+  align-items: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  vertical-align: bottom;
+  gap: 4px;
+  max-width: 100%;
 }
 
-.textContainer {
-  max-width: 196px;
-  height: 18px;
+.textRow a {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #262626;
+  text-decoration: none;
+}
+
+.textRow a:hover {
+  text-decoration: underline;
+}
+
+.ellipsis {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  vertical-align: bottom;
 }

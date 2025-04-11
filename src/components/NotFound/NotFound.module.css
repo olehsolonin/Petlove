@@ -1,0 +1,94 @@
+.title {
+  color: darkblue;
+}
+
+.notFoundContainer {
+  max-width: 374px;
+  height: 812px;
+  background: #f9f9f9;
+  padding: 24px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.mainContainer {
+  border-radius: 30px;
+  width: 335px;
+  height: 712px;
+  background: #f6b83d;
+  padding: 245px 33px;
+}
+
+.textContainer {
+  width: 269px;
+  height: 222px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mainTitle {
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  font-size: 120px;
+  line-height: 100%;
+  color: #fff;
+  max-width: 269px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.textButtonContainer {
+  width: 215px;
+  height: 82px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ooopsText {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.button {
+  border-radius: 30px;
+  padding: 12px 30px;
+  width: 150px;
+  height: 42px;
+  background: #fff4df;
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.03em;
+  color: #f6b83d;
+  margin: 0 auto;
+}
+
+.catContainer {
+  border-radius: 1000px;
+  width: 109px;
+  height: 109px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.img {
+  border-radius: 1000px;
+  width: 109px;
+  height: 109px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.imageContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
