@@ -32,10 +32,10 @@
 .mainTitle {
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  font-size: 120px;
+  font-size: 110px;
   line-height: 100%;
   color: #fff;
-  max-width: 269px;
+  max-width: 74px;
   height: 120px;
   margin: 0 auto;
 }
@@ -78,6 +78,7 @@
   width: 109px;
   height: 109px;
   background: rgba(255, 255, 255, 0.1);
+  object-fit: cover;
 }
 
 .img {
@@ -85,10 +86,12 @@
   width: 109px;
   height: 109px;
   background: rgba(255, 255, 255, 0.1);
+  object-fit: cover;
 }
 
 .imageContainer {
   display: flex;
   flex-direction: row;
   gap: 8px;
+  align-items: center;
 }

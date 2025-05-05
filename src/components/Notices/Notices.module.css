@@ -1,0 +1,19 @@
+.noticesContainer {
+  width: 375px;
+  height: 3596px;
+  background: #f9f9f9;
+  padding: 34px 20px 88px 20px;
+}
+
+.titleContainer {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: -0.03em;
+  color: #262626;
+  width: 269px;
+  height: 28px;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}

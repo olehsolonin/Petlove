@@ -7,6 +7,7 @@ import RegistrationPage from "../../pages/RegistrationPage/RegistrationPage.jsx"
 import NewsPage from "../../pages/NewsPage/NewsPage.jsx";
 import FriendsPage from "../../pages/FriendsPage/FriendsPage.jsx";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage.jsx";
+import NoticesPage from "../../pages/NoticesPage/NoticesPage.jsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/friends" element={<FriendsPage />} />
+        <Route path="/notices" element={<NoticesPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
