@@ -43,23 +43,27 @@ export default function NoticesFilters() {
   }, [dispatch]);
 
   const categories = useSelector((state) => state.notices.categories);
+  const sexOptions = useSelector((state) => state.notices.sex);
+  const speciesOptions = useSelector((state) => state.notices.species);
 
   const initialValues = {
-    username: "",
+    catalog: "",
+    sex: "",
+    species: "",
     email: "",
     message: "",
     level: "good",
   };
 
-  const nameFieldId = useId();
-  const emailFieldId = useId();
-  const msgFieldId = useId();
-  const levelFieldId = useId();
+  const catalogId = useId();
+  const speciesFieldId = useId();
+  const sexFieldId = useId();
 
   const handleSubmit = (values, actions) => {
     console.log(values);
     actions.resetForm();
   };
+  console.log(typeof categories);
 
   return (
     <div className={css.noticesFiltersContainer}>
@@ -67,20 +71,40 @@ export default function NoticesFilters() {
       <div>
         <Formik initialValues={initialValues} onSubmit={handleSubmit}>
           <Form>
-            <label htmlFor={nameFieldId}>Username</label>
-            <Field type="text" name="username" id={nameFieldId} />
+            <Field as="select" name="catalog" id={catalogId}>
+              <option value="" disabled hidden>
+                Category
+              </option>
+              <option value="all">Show all</option>
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </Field>
 
-            <label htmlFor={emailFieldId}>Email</label>
-            <Field type="email" name="email" id={emailFieldId} />
+            <Field as="select" name="sex" id={sexFieldId}>
+              <option value="" disabled hidden>
+                By gender
+              </option>
+              <option value="all">Show all</option>
+              {sexOptions.map((sex) => (
+                <option key={sex} value={sex}>
+                  {sex}
+                </option>
+              ))}
+            </Field>
 
-            <label htmlFor={msgFieldId}>Message</label>
-            <Field as="textarea" name="message" id={msgFieldId} rows="5" />
-
-            <label htmlFor={levelFieldId}>Service satisfaction level</label>
-            <Field as="select" name="level" id={levelFieldId}>
-              <option value="good">Good</option>
-              <option value="neutral">Neutral</option>
-              <option value="bad">Bad</option>
+            <Field as="select" name="species" id={speciesFieldId}>
+              <option value="" disabled hidden>
+                By type
+              </option>
+              <option value="all">Show all</option>
+              {speciesOptions.map((species) => (
+                <option key={species} value={species}>
+                  {species}
+                </option>
+              ))}
             </Field>
 
             <button type="submit">Submit</button>
