@@ -5,3 +5,47 @@
   background: #fff4df;
   padding: 20px;
 }
+
+.filtersWrapper {
+  width: 295px;
+  height: 204px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.formikWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.catalogSexWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.catalogSexSelects {
+  width: 143px;
+  height: 42px;
+  padding: 0 32px 0 12px; /* внутренние отступы: иконка справа, текст слева */
+  border-radius: 30px;
+  background-color: #fff;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  font-size: 14px;
+  line-height: 42px; /* совпадает с высотой */
+  vertical-align: middle;
+
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23333' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+
+  cursor: pointer;
+}

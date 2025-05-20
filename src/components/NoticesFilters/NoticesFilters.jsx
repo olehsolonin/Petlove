@@ -67,33 +67,45 @@ export default function NoticesFilters() {
 
   return (
     <div className={css.noticesFiltersContainer}>
-      <SearchField />
-      <div>
+      <div className={css.filtersWrapper}>
+        <SearchField />
         <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-          <Form>
-            <Field as="select" name="catalog" id={catalogId}>
-              <option value="" disabled hidden>
-                Category
-              </option>
-              <option value="all">Show all</option>
-              {categories.map((category) => (
-                <option key={category} value={category}>
-                  {category}
+          <Form className={css.formikWrapper}>
+            <div className={css.catalogSexWrapper}>
+              <Field
+                as="select"
+                name="catalog"
+                id={catalogId}
+                className={css.catalogSexSelects}
+              >
+                <option value="" disabled hidden>
+                  Category
                 </option>
-              ))}
-            </Field>
+                <option value="all">Show all</option>
+                {categories.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </Field>
 
-            <Field as="select" name="sex" id={sexFieldId}>
-              <option value="" disabled hidden>
-                By gender
-              </option>
-              <option value="all">Show all</option>
-              {sexOptions.map((sex) => (
-                <option key={sex} value={sex}>
-                  {sex}
+              <Field
+                as="select"
+                name="sex"
+                id={sexFieldId}
+                className={css.catalogSexSelects}
+              >
+                <option value="" disabled hidden>
+                  By gender
                 </option>
-              ))}
-            </Field>
+                <option value="all">Show all</option>
+                {sexOptions.map((sex) => (
+                  <option key={sex} value={sex}>
+                    {sex}
+                  </option>
+                ))}
+              </Field>
+            </div>
 
             <Field as="select" name="species" id={speciesFieldId}>
               <option value="" disabled hidden>

@@ -5,6 +5,7 @@ import { reqResult } from "../../redux/searchFieldSlice.js";
 import { addNews } from "../../redux/newsSlice.js";
 import { useSelector } from "react-redux";
 import { fetchNews } from "../../fetchReq.js";
+import { IoIosSearch } from "react-icons/io";
 
 export default function SearchField() {
   const value = useSelector((state) => state.searchField.keyword);
@@ -29,13 +30,20 @@ export default function SearchField() {
     <div>
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form>
-          <Field
-            type="text"
-            name="keyword"
-            className={css.searchFieldInput}
-            placeholder="Search"
-          />
-          <button type="submit">Submit</button>
+          <div className={css.wrapper}>
+            <Field
+              type="text"
+              name="keyword"
+              className={css.searchFieldInput}
+              placeholder="Search"
+            />
+            <button type="submit" className={css.button}>
+              <span>
+                {" "}
+                <IoIosSearch />
+              </span>
+            </button>
+          </div>
         </Form>
       </Formik>
     </div>
