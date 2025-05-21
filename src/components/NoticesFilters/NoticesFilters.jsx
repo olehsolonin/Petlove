@@ -107,17 +107,24 @@ export default function NoticesFilters() {
               </Field>
             </div>
 
-            <Field as="select" name="species" id={speciesFieldId}>
-              <option value="" disabled hidden>
-                By type
-              </option>
-              <option value="all">Show all</option>
-              {speciesOptions.map((species) => (
-                <option key={species} value={species}>
-                  {species}
+            <div className={css.typeWrapper}>
+              <Field
+                as="select"
+                name="species"
+                id={speciesFieldId}
+                className={css.typeSelects}
+              >
+                <option value="" disabled hidden>
+                  By type
                 </option>
-              ))}
-            </Field>
+                <option value="all">Show all</option>
+                {speciesOptions.map((species) => (
+                  <option key={species} value={species}>
+                    {species}
+                  </option>
+                ))}
+              </Field>
+            </div>
 
             <button type="submit">Submit</button>
           </Form>
