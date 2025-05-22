@@ -1,11 +1,22 @@
 import SearchField from "../SearchField/SearchField";
 import css from "./NoticesFilters.module.css";
 import { useEffect } from "react";
-import { fetchCategories, fetchSex, fetchSpecies } from "../../fetchReq";
+import {
+  fetchCategories,
+  fetchSex,
+  fetchSpecies,
+  fetchLocations,
+} from "../../fetchReq";
 import { useSelector, useDispatch } from "react-redux";
-import { addCategories, addSex, addSpecies } from "../../redux/noticesSlice.js"; // <-- правильный экшен
+import {
+  addCategories,
+  addSex,
+  addSpecies,
+  addLocations,
+} from "../../redux/noticesSlice.js"; // <-- правильный экшен
 import { useId } from "react";
 import { Formik, Form, Field } from "formik";
+import Select from "react-select";
 
 export default function NoticesFilters() {
   const dispatch = useDispatch();
@@ -16,7 +27,7 @@ export default function NoticesFilters() {
         const res = await fetchCategories();
         dispatch(addCategories(res)); // <-- правильный экшен
       } catch (error) {
-        console.error("Ошибка загрузки категорий:", error);
+        console.error("Помилка завантаження категорій:", error);
       }
     };
     const getSex = async () => {
@@ -24,7 +35,7 @@ export default function NoticesFilters() {
         const res = await fetchSex();
         dispatch(addSex(res)); // <-- правильный экшен
       } catch (error) {
-        console.error("Ошибка загрузки пола:", error);
+        console.error("Помилка завантаження статі:", error);
       }
     };
 
@@ -33,26 +44,35 @@ export default function NoticesFilters() {
         const res = await fetchSpecies();
         dispatch(addSpecies(res)); // <-- правильный экшен
       } catch (error) {
-        console.error("Ошибка загрузки разновидностей:", error);
+        console.error("Помилка завантаження:", error);
+      }
+    };
+
+    const getLocations = async () => {
+      try {
+        const res = await fetchLocations();
+        dispatch(addLocations(res)); // <-- правильный экшен
+      } catch (error) {
+        console.error("Помилка завантаження доступних локацій:", error);
       }
     };
 
     getCatalog();
     getSex();
     getSpecies();
+    getLocations();
   }, [dispatch]);
 
   const categories = useSelector((state) => state.notices.categories);
   const sexOptions = useSelector((state) => state.notices.sex);
   const speciesOptions = useSelector((state) => state.notices.species);
+  const locationsOptions = useSelector((state) => state.notices.locations);
 
   const initialValues = {
     catalog: "",
     sex: "",
     species: "",
-    email: "",
-    message: "",
-    level: "good",
+    locations: "",
   };
 
   const catalogId = useId();

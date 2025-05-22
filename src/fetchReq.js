@@ -44,3 +44,10 @@ export const fetchSpecies = async () => {
 	console.log(response.data);
 	return response.data;
 };
+
+export const fetchLocations = async () => {
+	const response = await axios.get(`/cities/locations`);
+	// const response = await axios.get(`?${params}`);
+	console.log(response.data);
+	return response.data;
+};

@@ -8,6 +8,8 @@ const slice = createSlice({
 		categories: [],
 		sex: [],
 		species: [],
+		locations: [],
+
 	},
 	// Об'єкт case-редюсерів
 	reducers: {
@@ -21,12 +23,15 @@ const slice = createSlice({
 		addSpecies(state, action) {
 			state.species = action.payload;
 		},
+		addLocations(state, action) {
+			state.locations = action.payload;
+		},
 
 	},
 });
 
 // Експортуємо фабрики екшенів
-export const { addCategories, addSex, addSpecies } = slice.actions;
+export const { addCategories, addSex, addSpecies, addLocations } = slice.actions;
 
 // Експортуємо редюсер слайсу
 export default slice.reducer;
