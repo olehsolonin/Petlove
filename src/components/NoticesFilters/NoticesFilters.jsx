@@ -17,6 +17,7 @@ import {
 import { useId } from "react";
 import { Formik, Form, Field } from "formik";
 import Select from "react-select";
+import LocationSelect from "../Select/Select.jsx"; // путь подставь свой
 
 export default function NoticesFilters() {
   const dispatch = useDispatch();
@@ -72,7 +73,7 @@ export default function NoticesFilters() {
     catalog: "",
     sex: "",
     species: "",
-    locations: "",
+    locations: null,
   };
 
   const catalogId = useId();
@@ -145,6 +146,7 @@ export default function NoticesFilters() {
                 ))}
               </Field>
             </div>
+            <LocationSelect name="locations" />
 
             <button type="submit">Submit</button>
           </Form>
