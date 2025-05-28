@@ -1,4 +1,4 @@
-import Select from "react-select";
+import Select, { components } from "react-select";
 import { useField, useFormikContext } from "formik";
 import { useSelector } from "react-redux";
 import { useState } from "react";
@@ -28,7 +28,7 @@ const LocationSelect = ({ name }) => {
       <Select
         name={name}
         options={options}
-        placeholder="Оберіть місто або селище"
+        placeholder="Location"
         onChange={(selected) => {
           setFieldValue(name, selected?.value || "");
           setInputValue(""); // очищаем input после выбора
@@ -42,12 +42,50 @@ const LocationSelect = ({ name }) => {
         filterOption={(option, inputValue) =>
           option.label.toLowerCase().includes(inputValue.toLowerCase())
         }
+        components={{
+          IndicatorSeparator: () => null, // 🔥 Удаляет вертикальную черту
+          DropdownIndicator: () => null, // 🔥 Удаляет стрелочку
+        }}
         styles={{
-          control: (base) => ({
+          control: (base, state) => ({
             ...base,
             borderRadius: "30px",
-            padding: "6px 12px",
+            // padding: "8px 12px",
             borderColor: meta.touched && meta.error ? "red" : base.borderColor,
+            boxShadow: "none",
+            fontFamily: '"Manrope", sans-serif',
+            fontWeight: 500,
+            fontSize: "14px",
+            lineHeight: "129%",
+            letterSpacing: "-0.03em",
+            color: "#262626",
+          }),
+          input: (base) => ({
+            ...base,
+            fontFamily: '"Manrope", sans-serif',
+            fontWeight: 500,
+            fontSize: "14px",
+            lineHeight: "129%",
+            letterSpacing: "-0.03em",
+            color: "#262626",
+          }),
+          singleValue: (base) => ({
+            ...base,
+            fontFamily: '"Manrope", sans-serif',
+            fontWeight: 500,
+            fontSize: "14px",
+            lineHeight: "129%",
+            letterSpacing: "-0.03em",
+            color: "#262626",
+          }),
+          placeholder: (base) => ({
+            ...base,
+            fontFamily: '"Manrope", sans-serif',
+            fontWeight: 500,
+            fontSize: "14px",
+            lineHeight: "129%",
+            letterSpacing: "-0.03em",
+            color: "#262626",
           }),
         }}
       />

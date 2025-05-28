@@ -4,6 +4,12 @@
   border-radius: 30px;
   background: #fff4df;
   padding: 20px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.03em;
+  color: #262626;
 }
 
 .filtersWrapper {
