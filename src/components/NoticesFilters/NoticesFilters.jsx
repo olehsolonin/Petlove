@@ -13,6 +13,7 @@ import {
   addSex,
   addSpecies,
   addLocations,
+  addParams,
 } from "../../redux/noticesSlice.js"; // <-- правильный экшен
 import { useId } from "react";
 import { Formik, Form, Field } from "formik";
@@ -82,6 +83,18 @@ export default function NoticesFilters() {
   const sexFieldId = useId();
 
   const handleSubmit = (values, actions) => {
+    const cleanedValues = {};
+
+    for (const key in values) {
+      const value = values[key];
+      if (value !== "" && value !== null && value !== undefined) {
+        cleanedValues[key] = value;
+      }
+    }
+
+    console.log(cleanedValues); // Тільки заповнені поля
+    dispatch(addParams(cleanedValues));
+
     console.log(values);
     actions.resetForm();
   };
