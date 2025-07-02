@@ -51,3 +51,13 @@ export const fetchLocations = async () => {
 	console.log(response.data);
 	return response.data;
 };
+
+
+export const fetchAllNotices = async (filteredParams) => {
+
+	console.log(filteredParams);
+	const response = await axios.get(`/notices?byDate=true&page=1&limit=6`, { params: filteredParams });
+	console.log(response.data);
+	return response.data;
+
+};

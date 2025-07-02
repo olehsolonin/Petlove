@@ -10,6 +10,12 @@ const slice = createSlice({
 		species: [],
 		locations: [],
 		fetchParams: [],
+		results: {
+			page: 1,
+			perPage: 6,
+			results: [],
+			totalPages: null,
+		},
 
 	},
 	// Об'єкт case-редюсерів
@@ -29,13 +35,16 @@ const slice = createSlice({
 		},
 		addParams(state, action) {
 			state.fetchParams = action.payload;
+		},
+		addResults(state, action) {
+			state.results.results = action.payload;
 		}
 
 	},
 });
 
 // Експортуємо фабрики екшенів
-export const { addCategories, addSex, addSpecies, addLocations, addParams } = slice.actions;
+export const { addCategories, addSex, addSpecies, addLocations, addParams, addResults } = slice.actions;
 
 // Експортуємо редюсер слайсу
 export default slice.reducer;

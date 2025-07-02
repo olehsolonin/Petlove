@@ -6,6 +6,7 @@ import {
   fetchSex,
   fetchSpecies,
   fetchLocations,
+  fetchAllNotices,
 } from "../../fetchReq";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -14,11 +15,12 @@ import {
   addSpecies,
   addLocations,
   addParams,
+  addResults,
 } from "../../redux/noticesSlice.js"; // <-- правильный экшен
 import { useId } from "react";
 import { Formik, Form, Field } from "formik";
 import Select from "react-select";
-import LocationSelect from "../Select/Select.jsx"; // путь подставь свой
+import LocationSelect from "../Select/Select.jsx";
 
 export default function NoticesFilters() {
   const dispatch = useDispatch();
@@ -94,6 +96,19 @@ export default function NoticesFilters() {
 
     console.log(cleanedValues); // Тільки заповнені поля
     dispatch(addParams(cleanedValues));
+    //  const res = fetchAllNotices(cleanedValues);
+    //  dispatch(addResults(res));
+
+    const getResults = async () => {
+      try {
+        const res = await fetchAllNotices(cleanedValues);
+        dispatch(addResults(res.results));
+      } catch (error) {
+        console.error("Помилка завантаження результатів:", error);
+      }
+    };
+
+    getResults();
 
     console.log(values);
     actions.resetForm();
