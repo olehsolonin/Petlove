@@ -1,5 +1,6 @@
 .noticesContainer {
-  width: 375px;
+  min-width: 320px;
+  max-width: 374px;
   height: 3596px;
   background: #f9f9f9;
   padding: 34px 20px 88px 20px;

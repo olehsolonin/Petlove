@@ -1,7 +1,103 @@
 .noticesItemContainer {
   border-radius: 16px;
-  padding: 32px;
-  width: 335px;
+  padding: 24px;
+  max-width: 335px;
   height: 454px;
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.imageContainer {
+  border-radius: 16px;
+  width: 287px;
+  height: 178px;
+  object-fit: cover;
+}
+
+.imageSettings {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.descriptionContainer {
+  width: 287px;
+  height: 204px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.titleTextWrap {
+  width: 287px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.titlePopularityWrap {
+  width: 287px;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.detailsTextWrap {
+  width: 287px;
+  height: 30px;
+}
+
+.detailsContainer {
+  width: 287px;
+  height: 58px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.commentContainer {
+  width: 287px;
+  height: 36px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: #2b2b2a;
+}
+
+.popularityBlock {
+  min-width: 34px;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  color: #2b2b2a;
+}
+
+.starWrap {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.star {
+  width: 100%;
+  height: 100%;
+  /* fill: #ffc531; */
+  color: #ffc531;
 }

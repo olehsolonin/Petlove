@@ -3,3 +3,9 @@
   flex-direction: column;
   gap: 20px;
 }
+
+.noticesList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
