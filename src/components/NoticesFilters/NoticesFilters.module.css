@@ -1,6 +1,7 @@
 .noticesFiltersContainer {
   max-width: 335px;
   height: 378px;
+  margin-bottom: 40px;
   border-radius: 30px;
   background: #fff4df;
   padding: 20px;
@@ -12,7 +13,7 @@
   color: #262626;
 }
 
-.filtersWrapper {
+.topFiltersWrapper {
   width: 295px;
   height: 204px;
   display: flex;
@@ -20,11 +21,11 @@
   gap: 12px;
 }
 
-.formikWrapper {
+.formWrapper {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 20px;
 }
 
 .catalogSexWrapper {
@@ -81,4 +82,32 @@
   background-size: 12px;
 
   cursor: pointer;
+}
+
+.line {
+  height: 1px;
+  background-color: rgba(38, 38, 38, 0.1);
+  width: 100%;
+}
+
+.bottomFiltersWrapper {
+  width: 295px;
+  height: 94px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.labelButtonWrapper {
+  border-radius: 30px;
+  height: 42px;
+  padding: 12px;
+  background: #fff;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.03em;
+  color: #262626;
 }

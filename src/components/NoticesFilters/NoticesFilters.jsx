@@ -117,73 +117,92 @@ export default function NoticesFilters() {
 
   return (
     <div className={css.noticesFiltersContainer}>
-      <div className={css.filtersWrapper}>
+      <div>
         <Formik initialValues={initialValues} onSubmit={handleSubmit}>
           {({ values, handleChange }) => (
-            <Form className={css.formikWrapper}>
-              <SearchField
-                name="keyword"
-                value={values.keyword}
-                onChange={handleChange}
-                insideFormik={true}
-              />
-              <div className={css.catalogSexWrapper}>
-                <Field
-                  as="select"
-                  name="catalog"
-                  id={catalogId}
-                  className={css.catalogSexSelects}
-                >
-                  <option value="" disabled hidden>
-                    Category
-                  </option>
-                  <option value="all">Show all</option>
-                  {categories.map((category) => (
-                    <option key={category} value={category}>
-                      {category}
+            <Form className={css.formWrapper}>
+              <div className={css.topFiltersWrapper}>
+                <SearchField
+                  name="keyword"
+                  value={values.keyword}
+                  onChange={handleChange}
+                  insideFormik={true}
+                />
+                <div className={css.catalogSexWrapper}>
+                  <Field
+                    as="select"
+                    name="catalog"
+                    id={catalogId}
+                    className={css.catalogSexSelects}
+                  >
+                    <option value="" disabled hidden>
+                      Category
                     </option>
-                  ))}
-                </Field>
+                    <option value="all">Show all</option>
+                    {categories.map((category) => (
+                      <option key={category} value={category}>
+                        {category}
+                      </option>
+                    ))}
+                  </Field>
 
-                <Field
-                  as="select"
-                  name="sex"
-                  id={sexFieldId}
-                  className={css.catalogSexSelects}
-                >
-                  <option value="" disabled hidden>
-                    By gender
-                  </option>
-                  <option value="all">Show all</option>
-                  {sexOptions.map((sex) => (
-                    <option key={sex} value={sex}>
-                      {sex}
+                  <Field
+                    as="select"
+                    name="sex"
+                    id={sexFieldId}
+                    className={css.catalogSexSelects}
+                  >
+                    <option value="" disabled hidden>
+                      By gender
                     </option>
-                  ))}
-                </Field>
+                    <option value="all">Show all</option>
+                    {sexOptions.map((sex) => (
+                      <option key={sex} value={sex}>
+                        {sex}
+                      </option>
+                    ))}
+                  </Field>
+                </div>
+
+                <div className={css.typeWrapper}>
+                  <Field
+                    as="select"
+                    name="species"
+                    id={speciesFieldId}
+                    className={css.typeSelects}
+                  >
+                    <option value="" disabled hidden>
+                      By type
+                    </option>
+                    <option value="all">Show all</option>
+                    {speciesOptions.map((species) => (
+                      <option key={species} value={species}>
+                        {species}
+                      </option>
+                    ))}
+                  </Field>
+                </div>
+                <LocationSelect name="locations" />
               </div>
-
-              <div className={css.typeWrapper}>
-                <Field
-                  as="select"
-                  name="species"
-                  id={speciesFieldId}
-                  className={css.typeSelects}
-                >
-                  <option value="" disabled hidden>
-                    By type
-                  </option>
-                  <option value="all">Show all</option>
-                  {speciesOptions.map((species) => (
-                    <option key={species} value={species}>
-                      {species}
-                    </option>
-                  ))}
-                </Field>
+              <div className={css.line}></div>
+              <div className={css.bottomFiltersWrapper}>
+                <label className={css.labelButtonWrapper}>
+                  <input type="radio" name="byPopularity" value={true} />
+                  Popular
+                </label>
+                <label className={css.labelButtonWrapper}>
+                  <input type="radio" name="byPopularity" value={false} />
+                  Unpopular
+                </label>
+                <label className={css.labelButtonWrapper}>
+                  <input type="radio" name="byPrice" value={true} />
+                  Cheap
+                </label>
+                <label className={css.labelButtonWrapper}>
+                  <input type="radio" name="byPrice" value={false} />
+                  Expensive
+                </label>
               </div>
-              <LocationSelect name="locations" />
-
-              <button type="submit">Submit</button>
             </Form>
           )}
         </Formik>
