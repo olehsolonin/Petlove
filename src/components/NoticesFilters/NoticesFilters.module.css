@@ -92,7 +92,7 @@
 
 .bottomFiltersWrapper {
   width: 295px;
-  height: 94px;
+  height: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -100,9 +100,21 @@
 }
 
 .labelButtonWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+/* приховуємо стандартне радіо */
+.radioInput {
+  display: none;
+}
+
+.customButton {
   border-radius: 30px;
   height: 42px;
-  padding: 12px;
+  padding: 12px 20px;
   background: #fff;
   font-family: "Manrope", sans-serif;
   font-weight: 500;
@@ -110,4 +122,11 @@
   line-height: 129%;
   letter-spacing: -0.03em;
   color: #262626;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* стилі для активної кнопки */
+.radioInput:checked + .customButton {
+  background: #f6b83d;
+  color: #fff;
 }

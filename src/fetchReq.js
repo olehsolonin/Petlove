@@ -27,28 +27,28 @@ export const fetchFriends = async () => {
 export const fetchCategories = async () => {
 	const response = await axios.get(`/notices/categories`);
 	// const response = await axios.get(`?${params}`);
-	console.log(response.data);
+	// console.log(response.data);
 	return response.data;
 };
 
 export const fetchSex = async () => {
 	const response = await axios.get(`/notices/sex`);
 	// const response = await axios.get(`?${params}`);
-	console.log(response.data);
+	// console.log(response.data);
 	return response.data;
 };
 
 export const fetchSpecies = async () => {
 	const response = await axios.get(`/notices/species`);
 	// const response = await axios.get(`?${params}`);
-	console.log(response.data);
+	// console.log(response.data);
 	return response.data;
 };
 
 export const fetchLocations = async () => {
 	const response = await axios.get(`/cities/locations`);
 	// const response = await axios.get(`?${params}`);
-	console.log(response.data);
+	// console.log(response.data);
 	return response.data;
 };
 

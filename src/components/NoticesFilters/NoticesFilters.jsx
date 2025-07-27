@@ -16,7 +16,7 @@ import {
   addLocations,
   addParams,
   addResults,
-} from "../../redux/noticesSlice.js"; // <-- правильный экшен
+} from "../../redux/noticesSlice.js";
 import { useId } from "react";
 import { Formik, Form, Field } from "formik";
 import Select from "react-select";
@@ -29,7 +29,7 @@ export default function NoticesFilters() {
     const getCatalog = async () => {
       try {
         const res = await fetchCategories();
-        dispatch(addCategories(res)); // <-- правильный экшен
+        dispatch(addCategories(res));
       } catch (error) {
         console.error("Помилка завантаження категорій:", error);
       }
@@ -37,7 +37,7 @@ export default function NoticesFilters() {
     const getSex = async () => {
       try {
         const res = await fetchSex();
-        dispatch(addSex(res)); // <-- правильный экшен
+        dispatch(addSex(res));
       } catch (error) {
         console.error("Помилка завантаження статі:", error);
       }
@@ -46,7 +46,7 @@ export default function NoticesFilters() {
     const getSpecies = async () => {
       try {
         const res = await fetchSpecies();
-        dispatch(addSpecies(res)); // <-- правильный экшен
+        dispatch(addSpecies(res));
       } catch (error) {
         console.error("Помилка завантаження:", error);
       }
@@ -55,7 +55,7 @@ export default function NoticesFilters() {
     const getLocations = async () => {
       try {
         const res = await fetchLocations();
-        dispatch(addLocations(res)); // <-- правильный экшен
+        dispatch(addLocations(res));
       } catch (error) {
         console.error("Помилка завантаження доступних локацій:", error);
       }
@@ -78,6 +78,8 @@ export default function NoticesFilters() {
     sex: "",
     species: "",
     locations: null,
+    byPopularity: "",
+    byPrice: "",
   };
 
   const catalogId = useId();
@@ -86,6 +88,7 @@ export default function NoticesFilters() {
 
   const handleSubmit = (values, actions) => {
     const cleanedValues = {};
+    console.log(values);
 
     for (const key in values) {
       const value = values[key];
@@ -113,7 +116,7 @@ export default function NoticesFilters() {
     console.log(values);
     actions.resetForm();
   };
-  console.log(typeof categories);
+  //   console.log(typeof categories);
 
   return (
     <div className={css.noticesFiltersContainer}>
@@ -187,20 +190,43 @@ export default function NoticesFilters() {
               <div className={css.line}></div>
               <div className={css.bottomFiltersWrapper}>
                 <label className={css.labelButtonWrapper}>
-                  <input type="radio" name="byPopularity" value={true} />
-                  Popular
+                  <Field
+                    type="radio"
+                    name="byPopularity"
+                    value="true"
+                    className={css.radioInput}
+                  />
+                  <span className={css.customButton}>Popular</span>
                 </label>
+
                 <label className={css.labelButtonWrapper}>
-                  <input type="radio" name="byPopularity" value={false} />
-                  Unpopular
+                  <Field
+                    type="radio"
+                    name="byPopularity"
+                    value="false"
+                    className={css.radioInput}
+                  />
+                  <span className={css.customButton}>Unpopular</span>
                 </label>
+
                 <label className={css.labelButtonWrapper}>
-                  <input type="radio" name="byPrice" value={true} />
-                  Cheap
+                  <Field
+                    type="radio"
+                    name="byPrice"
+                    value="true"
+                    className={css.radioInput}
+                  />
+                  <span className={css.customButton}>Cheap</span>
                 </label>
+
                 <label className={css.labelButtonWrapper}>
-                  <input type="radio" name="byPrice" value={false} />
-                  Expensive
+                  <Field
+                    type="radio"
+                    name="byPrice"
+                    value="false"
+                    className={css.radioInput}
+                  />
+                  <span className={css.customButton}>Expensive</span>
                 </label>
               </div>
             </Form>
