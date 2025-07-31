@@ -1,25 +1,41 @@
 import css from "./Registration.module.css";
 import Header from "../Header/Header.jsx";
 import PetBlockDog from "../PetBlockDog/PetBlockDog.jsx";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { NavLink } from "react-router-dom";
 import Title from "../Title/Title.jsx";
+import { fetchSignup } from "../../fetchReq.js";
 
 const initialValues = {
-  username: "",
+  name: "",
   email: "",
-  userpassword: "",
+  password: "",
   confirmPassword: "",
 };
 
 const handleSubmit = (values, actions) => {
   console.log("Form Submitted", values);
+  const cleanedRegisterData = {};
+  for (const key in values) {
+    if (key !== "confirmPassword") {
+      cleanedRegisterData[key] = values[key];
+    }
+  }
+
+  const postSignup = async () => {
+    try {
+      const res = await fetchSignup(cleanedRegisterData);
+    } catch (error) {
+      console.error("Error during signup:", error);
+    }
+  };
+  postSignup();
   actions.resetForm();
 };
 
 const FeedbackSchema = Yup.object().shape({
-  username: Yup.string()
+  name: Yup.string()
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
@@ -29,12 +45,12 @@ const FeedbackSchema = Yup.object().shape({
       "Invalid email format"
     )
     .required("Email is required"),
-  userpassword: Yup.string()
+  password: Yup.string()
     .min(7, "Too short")
     .max(256, "Too long")
     .required("Required"),
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref("userpassword"), null], "Passwords must match") // Проверяем, что пароли совпадают
+    .oneOf([Yup.ref("password"), null], "Passwords must match") // Проверяем, что пароли совпадают
     .required("Required"),
 });
 
@@ -66,11 +82,15 @@ export default function Registration() {
                 <div className={css.formForm}>
                   <Field
                     type="text"
-                    name="username"
+                    name="name"
                     className={css.formStyle}
                     placeholder="Name"
                   />
-                  {/* <ErrorMessage name="username" component="span" /> */}
+                  <ErrorMessage
+                    name="name"
+                    component="div"
+                    className={css.errorText}
+                  />
 
                   <Field
                     type="email"
@@ -78,12 +98,22 @@ export default function Registration() {
                     className={css.formStyle}
                     placeholder="Email"
                   />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className={css.errorText}
+                  />
 
                   <Field
                     type="password"
-                    name="userpassword"
+                    name="password"
                     className={css.formStyle}
                     placeholder="Password"
+                  />
+                  <ErrorMessage
+                    name="password"
+                    component="div"
+                    className={css.errorText}
                   />
 
                   <Field
@@ -92,7 +122,11 @@ export default function Registration() {
                     className={css.formStyle}
                     placeholder="Confirm password"
                   />
-                  {/* <ErrorMessage name="confirmPassword" component="span" /> */}
+                  <ErrorMessage
+                    name="confirmPassword"
+                    component="div"
+                    className={css.errorText}
+                  />
                 </div>
                 <button type="submit" className={css.registerButton}>
                   Register

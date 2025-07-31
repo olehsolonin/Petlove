@@ -61,3 +61,9 @@ export const fetchAllNotices = async (filteredParams) => {
 	return response.data;
 
 };
+
+export const fetchSignup = async (userData) => {
+	const response = await axios.post(`/users/signup`, userData);
+	console.log(response.data);
+	return response.data;
+};

@@ -112,3 +112,12 @@
   text-decoration-skip-ink: none;
   color: #f6b83d;
 }
+
+.errorText {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 120%;
+  letter-spacing: -0.03em;
+  color: #ef2447;
+}
