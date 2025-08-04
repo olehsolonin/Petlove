@@ -3,7 +3,7 @@ import Header from "../Header/Header.jsx";
 import PetBlockDog from "../PetBlockDog/PetBlockDog.jsx";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Title from "../Title/Title.jsx";
 import { fetchSignup } from "../../fetchReq.js";
 
@@ -12,26 +12,6 @@ const initialValues = {
   email: "",
   password: "",
   confirmPassword: "",
-};
-
-const handleSubmit = (values, actions) => {
-  console.log("Form Submitted", values);
-  const cleanedRegisterData = {};
-  for (const key in values) {
-    if (key !== "confirmPassword") {
-      cleanedRegisterData[key] = values[key];
-    }
-  }
-
-  const postSignup = async () => {
-    try {
-      const res = await fetchSignup(cleanedRegisterData);
-    } catch (error) {
-      console.error("Error during signup:", error);
-    }
-  };
-  postSignup();
-  actions.resetForm();
 };
 
 const FeedbackSchema = Yup.object().shape({
@@ -55,6 +35,34 @@ const FeedbackSchema = Yup.object().shape({
 });
 
 export default function Registration() {
+  const navigate = useNavigate();
+
+  const handleSubmit = (values, actions) => {
+    console.log("Form Submitted", values);
+    const cleanedRegisterData = {};
+    for (const key in values) {
+      if (key !== "confirmPassword") {
+        cleanedRegisterData[key] = values[key];
+      }
+    }
+
+    const postSignup = async () => {
+      try {
+        const res = await fetchSignup(cleanedRegisterData);
+        console.log(res);
+        if (res.status === 201) {
+          console.log("User successfully registered");
+          navigate("/profile", { replace: true }); // ✅ теперь всё ок
+          return res.data;
+        }
+      } catch (error) {
+        console.error("Error during signup:", error);
+      }
+    };
+    postSignup();
+    actions.resetForm();
+  };
+
   return (
     <div className={css.registrationContainer}>
       <div className={css.headerContainer}>

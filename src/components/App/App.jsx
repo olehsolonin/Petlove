@@ -8,6 +8,7 @@ import NewsPage from "../../pages/NewsPage/NewsPage.jsx";
 import FriendsPage from "../../pages/FriendsPage/FriendsPage.jsx";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage.jsx";
 import NoticesPage from "../../pages/NoticesPage/NoticesPage.jsx";
+import ProfilePage from "../../pages/ProfilePage/profilePage.jsx";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/friends" element={<FriendsPage />} />
         <Route path="/notices" element={<NoticesPage />} />
