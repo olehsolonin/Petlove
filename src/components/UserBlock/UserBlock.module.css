@@ -1,0 +1,82 @@
+.userBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  justify-content: center;
+  align-items: center;
+}
+
+.editPhotoBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.avatarContainer {
+  border-radius: 100px;
+  padding: 10px;
+  width: 94px;
+  height: 94px;
+  background: #fff4df;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.linkButton {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: #262626;
+}
+
+.editProfileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.infoTitle {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  color: #2b2b2a;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  fill: #f6b83d;
+  stroke-width: 2px;
+  stroke: #f6b83d;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 295px;
+  height: 146px;
+}
+
+.userInfoDetails {
+  border: 1px solid #f6b83d;
+  border-radius: 30px;
+  padding: 12px 250px 12px 12px;
+  width: 295px;
+  height: 42px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.03em;
+  color: #262626;
+}

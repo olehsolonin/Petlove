@@ -1,0 +1,13 @@
+.profileContainer {
+  min-width: 320px;
+  max-width: 374px;
+  height: 2766px;
+  padding: 24px 20px 56px 20px;
+  background: #f9f9f9;
+}
+
+/* .profileBlock {
+  border-radius: 30px;
+  width: 335px;
+  background: #fff;
+} */

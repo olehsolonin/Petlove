@@ -1,7 +1,6 @@
 .container {
   min-width: 320px;
   max-width: 374px;
-  /* padding: 34px 20px 20px 20px; */
-  /* height: 812px; */
   margin: 0 auto;
+  background: #f9f9f9;
 }

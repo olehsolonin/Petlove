@@ -7,7 +7,6 @@ import LogOutBtn from "../LogOutBtn/LogOutBtn.jsx";
 export default function UserCard() {
   return (
     <div className={css.userCard}>
-      <h2>Salam brat</h2>
       <EditUserBtn />
       <UserBlock />
       <PetsBlock />
