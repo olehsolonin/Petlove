@@ -2,7 +2,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import newsReducer from './newsSlice.js';
 import searchFieldReducer from './searchFieldSlice.js';
 import searchFriendsReducer from './friendsSlice.js';
-import NoticesReducer from "./noticesSlice.js"
+import NoticesReducer from "./noticesSlice.js";
+import authReducer from './authSlice.js';
 
 export const store = configureStore({
 	reducer: {
@@ -10,6 +11,6 @@ export const store = configureStore({
 		searchField: searchFieldReducer,
 		searchFriends: searchFriendsReducer,
 		notices: NoticesReducer,
-
+		auth: authReducer,
 	},
 });

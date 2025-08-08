@@ -6,6 +6,8 @@ import * as Yup from "yup";
 import { NavLink, useNavigate } from "react-router-dom";
 import Title from "../Title/Title.jsx";
 import { fetchSignup } from "../../fetchReq.js";
+import { useSelector, useDispatch } from "react-redux";
+import { login } from "../../redux/authSlice.js";
 
 const initialValues = {
   name: "",
@@ -36,6 +38,7 @@ const FeedbackSchema = Yup.object().shape({
 
 export default function Registration() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
     console.log("Form Submitted", values);
@@ -51,8 +54,19 @@ export default function Registration() {
         const res = await fetchSignup(cleanedRegisterData);
         console.log(res);
         if (res.status === 201) {
+          const userData = res.data;
+          console.log(userData);
           console.log("User successfully registered");
-          navigate("/profile", { replace: true }); // ✅ теперь всё ок
+          navigate("/profile", { replace: true });
+          dispatch(
+            login({
+              user: {
+                name: userData.name,
+                email: userData.email,
+              },
+              token: userData.token,
+            })
+          );
           return res.data;
         }
       } catch (error) {
