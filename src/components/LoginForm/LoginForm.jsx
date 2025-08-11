@@ -1,17 +1,17 @@
 import { Formik, Form, Field } from "formik";
 import css from "./LoginForm.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import * as Yup from "yup";
 import Title from "../Title/Title";
+import { fetchSignin } from "../../fetchReq.js";
+import { login } from "../../redux/authSlice.js";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const initialValues = {
   email: "",
-  userpassword: "",
-};
-
-const handleSubmit = (values, actions) => {
-  console.log("Form Submitted", values);
-  actions.resetForm();
+  password: "",
 };
 
 const FeedbackSchema = Yup.object().shape({
@@ -21,13 +21,44 @@ const FeedbackSchema = Yup.object().shape({
       "Invalid email format"
     )
     .required("Email is required"),
-  userpassword: Yup.string()
+  password: Yup.string()
     .min(7, "Too short")
     .max(256, "Too long")
     .required("Required"),
 });
 
 export default function LoginForm() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const handleSubmit = (values, actions) => {
+    console.log("Form Submitted", values);
+    const loginFetch = async () => {
+      try {
+        const response = await fetchSignin(values);
+        if (response.status === 200) {
+          console.log("Login successful:", response.data);
+          const userData = response.data;
+          dispatch(
+            login({
+              user: {
+                name: userData.name,
+                email: userData.email,
+              },
+              token: userData.token,
+            })
+          );
+          navigate("/profile", { replace: true });
+          return response.data;
+        }
+      } catch (error) {
+        console.error("Error during login:", error);
+        toast.error("Email or password invalid", { position: "top-center" });
+      }
+    };
+    loginFetch();
+    actions.resetForm();
+  };
+
   return (
     <div className={css.formContainer}>
       {/* <h1 className={css.loginTitle}>Login</h1> */}
@@ -53,7 +84,7 @@ export default function LoginForm() {
 
             <Field
               type="password"
-              name="userpassword"
+              name="password"
               className={css.fields}
               placeholder="Password"
             />
@@ -74,6 +105,7 @@ export default function LoginForm() {
           </div>
         </Form>
       </Formik>
+      <ToastContainer />
     </div>
   );
 }

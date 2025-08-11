@@ -77,3 +77,9 @@ export const fetchFullUserInfo = async (someToken) => {
 	console.log(response.data);
 	return response.data;
 };
+
+export const fetchSignin = async (userData) => {
+	const response = await axios.post(`/users/signin`, userData);
+	// console.log(response.data);
+	return response;
+};

@@ -29,15 +29,15 @@ export default function Profile() {
       (async () => {
         try {
           const res = await fetchFullUserInfo(userToken);
-          console.log(res);
-          console.log(typeof res);
+          //  console.log(res);
+          //  console.log(typeof res);
 
           dispatch(userDataID(res._id));
           dispatch(userDataName(res.name));
           dispatch(userDataEmail(res.email));
           dispatch(userDataAvatar(res.avatar));
           dispatch(userDataPhone(res.phone));
-          dispatch(userDataToken(userToken)); // токен у нас из state.auth
+          dispatch(userDataToken(userToken));
           dispatch(userDataNoticesViewed(res.noticesViewed));
           dispatch(userDataNoticesFavorites(res.noticesFavorites));
           dispatch(userDataPets(res.pets));
