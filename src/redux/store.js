@@ -4,6 +4,7 @@ import searchFieldReducer from './searchFieldSlice.js';
 import searchFriendsReducer from './friendsSlice.js';
 import NoticesReducer from "./noticesSlice.js";
 import authReducer from './authSlice.js';
+import userInfoReducer from './userInfoSlice.js';
 
 export const store = configureStore({
 	reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
 		searchFriends: searchFriendsReducer,
 		notices: NoticesReducer,
 		auth: authReducer,
+		userInfo: userInfoReducer,
 	},
 });

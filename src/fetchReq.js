@@ -67,3 +67,13 @@ export const fetchSignup = async (userData) => {
 	// console.log(response.data);
 	return response;
 };
+
+export const fetchFullUserInfo = async (someToken) => {
+	const response = await axios.get(`/users/current/full`, {
+		headers: {
+			Authorization: `Bearer ${someToken}`,
+		},
+	});
+	console.log(response.data);
+	return response.data;
+};

@@ -1,7 +1,11 @@
 import css from "./UserBlock.module.css";
 import { IoPersonSharp } from "react-icons/io5";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function UserBlock() {
+  const userName = useSelector((state) => state.userInfo.name);
+  const userEmail = useSelector((state) => state.userInfo.email);
+  const userPhone = useSelector((state) => state.userInfo.phone);
   return (
     <div className={css.userBlock}>
       <div className={css.editPhotoBlock}>
@@ -16,9 +20,11 @@ export default function UserBlock() {
       <div className={css.editProfileInfo}>
         <h2 className={css.infoTitle}>My information</h2>
         <div className={css.userInfo}>
-          <p className={css.userInfoDetails}>Anna</p>
-          <p className={css.userInfoDetails}>anna@example.com</p>
-          <p className={css.userInfoDetails}>+123456789</p>
+          <p className={css.userInfoDetails}>{userName}</p>
+          <p className={css.userInfoDetails}>{userEmail}</p>
+          <p className={css.userInfoDetails}>
+            {userPhone ? userPhone : "+380"}
+          </p>
         </div>
       </div>
     </div>
