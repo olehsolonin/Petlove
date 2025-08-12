@@ -57,7 +57,6 @@ export default function Registration() {
           const userData = res.data;
           console.log(userData);
           console.log("User successfully registered");
-          navigate("/profile", { replace: true });
           dispatch(
             login({
               user: {
@@ -67,6 +66,8 @@ export default function Registration() {
               token: userData.token,
             })
           );
+          window.localStorage.setItem("token", userData.token);
+          navigate("/profile", { replace: true });
           return res.data;
         }
       } catch (error) {

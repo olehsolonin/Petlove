@@ -47,6 +47,7 @@ export default function LoginForm() {
               token: userData.token,
             })
           );
+          window.localStorage.setItem("token", userData.token);
           navigate("/profile", { replace: true });
           return response.data;
         }
