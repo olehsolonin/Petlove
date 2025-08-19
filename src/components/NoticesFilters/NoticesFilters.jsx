@@ -97,7 +97,7 @@ export default function NoticesFilters() {
       }
     }
 
-    console.log(cleanedValues); // Тільки заповнені поля
+    console.log(cleanedValues);
     dispatch(addParams(cleanedValues));
     //  const res = fetchAllNotices(cleanedValues);
     //  dispatch(addResults(res));

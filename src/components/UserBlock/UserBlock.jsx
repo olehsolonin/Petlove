@@ -6,13 +6,14 @@ export default function UserBlock() {
   const userName = useSelector((state) => state.userInfo.name);
   const userEmail = useSelector((state) => state.userInfo.email);
   const userPhone = useSelector((state) => state.userInfo.phone);
+  const userAvatar = useSelector((state) => state.userInfo.avatar);
   return (
     <div className={css.userBlock}>
       <div className={css.editPhotoBlock}>
         <div className={css.avatarContainer}>
           {" "}
           <span>
-            <IoPersonSharp className={css.icon} />
+            {userAvatar ? userAvatar : <IoPersonSharp className={css.icon} />}
           </span>
         </div>
         <button className={css.linkButton}>Upload photo</button>
