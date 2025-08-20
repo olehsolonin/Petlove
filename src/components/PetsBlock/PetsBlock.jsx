@@ -1,11 +1,10 @@
 import css from "./PetsBlock.module.css";
+import AddPet from "../AddPet/AddPet.jsx";
 
 export default function PetsBlock() {
   return (
-    <>
-      <div>
-        <p>PetsBlock</p>
-      </div>
-    </>
+    <div className={css.petsBlockContainer}>
+      <AddPet />
+    </div>
   );
 }

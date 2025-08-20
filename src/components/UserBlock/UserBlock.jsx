@@ -11,12 +11,17 @@ export default function UserBlock() {
     <div className={css.userBlock}>
       <div className={css.editPhotoBlock}>
         <div className={css.avatarContainer}>
-          {" "}
-          <span>
-            {userAvatar ? userAvatar : <IoPersonSharp className={css.icon} />}
-          </span>
+          {userAvatar ? (
+            <img
+              src={userAvatar}
+              alt="User avatar"
+              className={css.userAvatarPhoto}
+            />
+          ) : (
+            <IoPersonSharp className={css.icon} />
+          )}
         </div>
-        <button className={css.linkButton}>Upload photo</button>
+        {/* <button className={css.linkButton}>Upload photo</button> */}
       </div>
       <div className={css.editProfileInfo}>
         <h2 className={css.infoTitle}>My information</h2>

@@ -9,6 +9,22 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { IoCloudUploadOutline } from "react-icons/io5";
+import { fetchEditUser } from "../../fetchReq";
+import {
+  userDataAll,
+  userDataID,
+  userDataName,
+  userDataEmail,
+  userDataAvatar,
+  userDataPhone,
+  userDataToken,
+  userDataNoticesViewed,
+  userDataNoticesFavorites,
+  userDataPets,
+  userDataCreatedAt,
+  userDataUpdatedAt,
+  userDataClear,
+} from "../../redux/userInfoSlice.js";
 
 // обязательно для доступности
 Modal.setAppElement("#root");
@@ -18,15 +34,28 @@ const FeedbackSchema = Yup.object().shape({
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  email: Yup.string().email("Must be a valid email!").required("Required"),
-  message: Yup.string()
-    .min(3, "Too short")
-    .max(256, "Too long")
+
+  email: Yup.string()
+    .matches(
+      /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
+      "Must be a valid email!"
+    )
     .required("Required"),
-  level: Yup.string().oneOf(["good", "neutral", "bad"]).required("Required"),
+
+  avatar: Yup.string()
+    .matches(
+      /^https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp)$/,
+      "Must be a valid image URL!"
+    )
+    .required("Required"),
+
+  phone: Yup.string()
+    .matches(/^\+38\d{10}$/, "Phone must be in format +380XXXXXXXXX")
+    .required("Required"),
 });
 
 export default function EditUserBtn() {
+  const dispatch = useDispatch();
   const userName = useSelector((state) => state.userInfo.name);
   const userAvatar = useSelector((state) => state.userInfo.avatar);
   const userEmail = useSelector((state) => state.userInfo.email);
@@ -42,17 +71,43 @@ export default function EditUserBtn() {
 
   const handleSubmit = (values, actions) => {
     console.log(values);
-    actions.resetForm();
+
+    const userEditFetch = async () => {
+      try {
+        const response = await fetchEditUser(
+          values,
+          localStorage.getItem("token")
+        );
+        //   console.log(response);
+        if (response.status === 200) {
+          const res = response.data;
+          dispatch(userDataName(res.name));
+          dispatch(userDataEmail(res.email));
+          dispatch(userDataAvatar(res.avatar));
+          dispatch(userDataPhone(res.phone));
+          console.log("User information updated successfully");
+          toast.success("Profile updated successfully", {
+            position: "top-center",
+          });
+          setIsOpen(false);
+          actions.resetForm();
+        }
+      } catch (error) {
+        console.log(error);
+        toast.error("Profile update failed", { position: "top-center" });
+      }
+    };
+    userEditFetch();
   };
 
   return (
     <div className={css.editProfileContainer}>
-      <button className={css.profileBtn}>
+      <div className={css.profileBtn}>
         {userName}
         <span>
           <IoPersonSharp className={css.icon} />
         </span>
-      </button>
+      </div>
       <button className={css.editBtn} onClick={() => setIsOpen(true)}>
         <span>
           <FiEdit2 className={css.editPencil} />
@@ -77,7 +132,11 @@ export default function EditUserBtn() {
         <div className={css.userAvatarContainer}>
           <span className={css.userAvatar}>
             {userAvatar ? (
-              userAvatar
+              <img
+                src={userAvatar}
+                alt="User avatar"
+                className={css.userAvatarPhoto}
+              />
             ) : (
               <IoPersonSharp className={css.avatarIcon} />
             )}
@@ -153,6 +212,7 @@ export default function EditUserBtn() {
           </Formik>
         </div>
       </Modal>
+      <ToastContainer className={css.toastContainer} />
     </div>
   );
 }

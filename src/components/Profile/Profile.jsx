@@ -23,7 +23,7 @@ import {
 
 export default function Profile() {
   const dispatch = useDispatch();
-  const userToken = useSelector((state) => state.auth.token);
+  const userToken = localStorage.getItem("token");
   useEffect(() => {
     if (userToken !== null && userToken !== undefined && userToken !== "") {
       (async () => {

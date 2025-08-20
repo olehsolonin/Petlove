@@ -1,9 +1,10 @@
 .userBlock {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 30px;
   justify-content: center;
   align-items: center;
+  margin-bottom: 40px;
 }
 
 .editPhotoBlock {
@@ -16,7 +17,6 @@
 
 .avatarContainer {
   border-radius: 100px;
-  padding: 10px;
   width: 94px;
   height: 94px;
   background: #fff4df;
@@ -79,4 +79,11 @@
   line-height: 129%;
   letter-spacing: -0.03em;
   color: #262626;
+}
+
+.userAvatarPhoto {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  object-fit: cover;
 }
