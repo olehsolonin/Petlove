@@ -9,6 +9,7 @@ import FriendsPage from "../../pages/FriendsPage/FriendsPage.jsx";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage.jsx";
 import NoticesPage from "../../pages/NoticesPage/NoticesPage.jsx";
 import ProfilePage from "../../pages/ProfilePage/profilePage.jsx";
+import AddPetPage from "../../pages/AddPetPage/AddPetPage.jsx";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/news" element={<NewsPage />} />
         <Route path="/friends" element={<FriendsPage />} />
         <Route path="/notices" element={<NoticesPage />} />
+        <Route path="/add-pet" element={<AddPetPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
