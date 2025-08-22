@@ -83,8 +83,12 @@ export default function Registration() {
       <div className={css.headerContainer}>
         <Header />
       </div>
-      <div className={css.petContainer}>
-        <PetBlockDog />
+      <div className={css.imageWrapperContainer}>
+        <PetBlockDog
+          src="/src/img/registration-mob-2x.png"
+          width={335}
+          height={280}
+        />
       </div>
       <div className={css.registrationFormContainer}>
         <div className={css.titleTextContainer}>

@@ -6,7 +6,13 @@ export default function AddPetContainer() {
   return (
     <div className={css.addPetContainer}>
       <Header />
-      <PetBlockDog className={css.petBlockIMG} />
+      <div className={css.imageWrapperContainer}>
+        <PetBlockDog
+          src="/src/img/dogInGlasses-2x.png"
+          width={335}
+          height={213}
+        />
+      </div>
       <h1 className={css.title}>Add Pet Container Component</h1>
     </div>
   );

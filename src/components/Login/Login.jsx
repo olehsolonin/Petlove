@@ -10,8 +10,8 @@ export default function Login() {
       <div className={css.headerContainer}>
         <Header />
       </div>
-      <div className={css.petContainer}>
-        <PetBlockDog />
+      <div className={css.imageWrapperContainer}>
+        <PetBlockDog src="/src/img/login-mob-2x.jpg" width={335} height={280} />
       </div>
       <div className={css.loginFormContainer}>
         <LoginForm />
