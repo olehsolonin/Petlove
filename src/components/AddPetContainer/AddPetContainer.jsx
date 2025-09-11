@@ -1,6 +1,7 @@
 import css from "./AddPetContainer.module.css";
 import Header from "../Header/Header.jsx";
 import PetBlockDog from "../PetBlockDog/PetBlockDog.jsx";
+import AddPetForm from "../AddPetForm/AddPetForm.jsx";
 
 export default function AddPetContainer() {
   return (
@@ -13,7 +14,7 @@ export default function AddPetContainer() {
           height={213}
         />
       </div>
-      <h1 className={css.title}>Add Pet Container Component</h1>
+      <AddPetForm />
     </div>
   );
 }

@@ -1,0 +1,101 @@
+.petFormContainer {
+  border-radius: 30px;
+  width: 335px;
+  height: 489px;
+  background: #fff;
+  padding: 28px 20px 20px 20px;
+}
+
+.addPetFormTitle {
+  width: 277px;
+  height: 28px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 24px;
+}
+
+.petFormTitle {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: -0.03em;
+  color: #262626;
+}
+
+.petFormText {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  color: rgba(43, 43, 42, 0.4);
+}
+
+.iconsContainer {
+  width: 112px;
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.iconWrapper {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.female {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.femaleIcon {
+  stroke-width: 1.5px;
+  fill: #f43f5e;
+}
+
+.male {
+  background-color: rgba(0, 0, 255, 0.1);
+}
+
+.maleIcon {
+  stroke-width: 1.5px;
+  fill: #3b82f6;
+}
+
+.intersex {
+  background-color: #fff4df;
+}
+.intersexIcon {
+  fill: #f59e0b;
+}
+
+.petAvatarContainer {
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 68px;
+  height: 68px;
+  background: #fff4df;
+  margin: 0 auto;
+}
+
+.pawIcon {
+  width: 34px;
+  height: 34px;
+  fill: #f6b83d;
+  stroke: #f6b83d;
+}
