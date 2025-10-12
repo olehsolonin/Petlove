@@ -99,3 +99,107 @@
   fill: #f6b83d;
   stroke: #f6b83d;
 }
+
+.addPetFormContainer {
+  height: 265px;
+  margin-top: 16px;
+}
+.formikForm {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 31px;
+}
+
+.formForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.avatarLinkButtonContainer {
+  width: 295px;
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.formStyleAvatar {
+  border: 1px solid rgba(38, 38, 38, 0.15);
+  border-radius: 30px;
+  padding: 9px 20px 9px 10px;
+  width: 170px;
+  height: 36px;
+}
+
+.uploadContainer {
+  border-radius: 30px;
+  padding: 10px;
+  width: 117px;
+  height: 36px;
+  background: #fff4df;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+  color: #262626;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.formStyle {
+  border: 1px solid rgba(38, 38, 38, 0.15);
+  border-radius: 30px;
+  padding: 12px;
+  width: 295px;
+  height: 42px;
+}
+
+.typeAndBirthdayContainer {
+  width: 295px;
+  height: 42px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.formStyleType {
+  border: 1px solid rgba(38, 38, 38, 0.15);
+  border-radius: 30px;
+  padding: 12px;
+  width: 143px;
+  height: 42px;
+}
+
+.calendarContainer {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid rgba(38, 38, 38, 0.15);
+  border-radius: 30px;
+  padding: 12px;
+  width: 143px;
+  height: 42px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.calendarPicker {
+  width: 74px;
+  height: 18px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.03em;
+  color: rgba(38, 38, 38, 0.5);
+}
+
+.calendarIcon {
+  width: 18px;
+  height: 18px;
+}

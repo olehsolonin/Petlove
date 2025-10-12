@@ -4,6 +4,11 @@ import { IoFemale } from "react-icons/io5";
 import { IoMale } from "react-icons/io5";
 import { PiGenderIntersexBold } from "react-icons/pi";
 import { IoPawOutline } from "react-icons/io5";
+import { IoCloudUploadOutline } from "react-icons/io5";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { CiCalendar } from "react-icons/ci";
+import { useEffect } from "react";
 
 export default function AddPetForm() {
   const initialValues = {
@@ -36,20 +41,20 @@ export default function AddPetForm() {
       <div className={css.petAvatarContainer}>
         <IoPawOutline className={css.pawIcon} />
       </div>
-      <div>
+      <div className={css.addPetFormContainer}>
         <Formik
           initialValues={initialValues}
           onSubmit={handleSubmit}
           //  validationSchema={FeedbackSchema}
         >
-          <Form>
+          <Form className={css.formikForm}>
             <div className={css.formForm}>
               <div className={css.avatarLinkButtonContainer}>
                 <Field
                   type="text"
                   name="avatar"
                   className={css.formStyleAvatar}
-                  placeholder="https://..."
+                  placeholder="Enter URL"
                 />
                 <ErrorMessage
                   name="avatar"
@@ -59,48 +64,73 @@ export default function AddPetForm() {
                 <div className={css.uploadContainer}>
                   <p>Upload photo</p>
                   <span>
-                    {/* <IoCloudUploadOutline className={css.uploadIcon} /> */}
+                    <IoCloudUploadOutline className={css.uploadIcon} />
                   </span>
                 </div>
               </div>
               <Field
                 type="text"
-                name="name"
+                name="title"
                 className={css.formStyle}
-                placeholder="Name"
+                placeholder="Title"
               />
               <ErrorMessage
-                name="name"
-                component="div"
-                className={css.errorText}
-              />
-
-              <Field
-                type="email"
-                name="email"
-                className={css.formStyle}
-                placeholder="Email"
-              />
-              <ErrorMessage
-                name="email"
+                name="title"
                 component="div"
                 className={css.errorText}
               />
 
               <Field
                 type="text"
-                name="phone"
+                name="name"
                 className={css.formStyle}
-                placeholder="Phone"
+                placeholder="Pet’s Name"
               />
               <ErrorMessage
-                name="phone"
+                name="name"
                 component="div"
                 className={css.errorText}
               />
+
+              <div className={css.typeAndBirthdayContainer}>
+                <div className={css.calendarContainer}>
+                  <Field name="birthday">
+                    {({ field, form }) => (
+                      <DatePicker
+                        {...field}
+                        selected={field.value ? new Date(field.value) : null}
+                        onChange={(date) =>
+                          form.setFieldValue(field.name, date)
+                        }
+                        dateFormat="dd/MM/yyyy"
+                        placeholderText="Birthday"
+                        className={css.calendarPicker}
+                        //   isClearable
+                      />
+                    )}
+                  </Field>
+                  <CiCalendar className={css.calendarIcon} />
+                </div>
+                <ErrorMessage
+                  name="birthday"
+                  component="div"
+                  className={css.errorText}
+                />
+                <Field
+                  type="text"
+                  name="species"
+                  className={css.formStyleType}
+                  placeholder="Type of pet"
+                />
+                <ErrorMessage
+                  name="species"
+                  component="div"
+                  className={css.errorText}
+                />
+              </div>
             </div>
             <button type="submit" className={css.profileEditBtn}>
-              Go to profile
+              Go to profileeee
             </button>
           </Form>
         </Formik>
