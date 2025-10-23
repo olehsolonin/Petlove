@@ -9,8 +9,25 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { CiCalendar } from "react-icons/ci";
 import { useEffect } from "react";
+import { fetchSpecies } from "../../fetchReq.js";
+import { useSelector, useDispatch } from "react-redux";
+import { addSpecies } from "../../redux/noticesSlice.js";
 
 export default function AddPetForm() {
+  const speciesOptions = useSelector((state) => state.notices.species);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const getSpecies = async () => {
+      try {
+        const res = await fetchSpecies();
+        dispatch(addSpecies(res));
+      } catch (error) {
+        console.error("Помилка завантаження:", error);
+      }
+    };
+    getSpecies();
+  }, [dispatch]);
+
   const initialValues = {
     name: "",
     email: "",
@@ -116,12 +133,19 @@ export default function AddPetForm() {
                   component="div"
                   className={css.errorText}
                 />
-                <Field
-                  type="text"
-                  name="species"
-                  className={css.formStyleType}
-                  placeholder="Type of pet"
-                />
+                <div className={css.speciesSelectContainer}>
+                  <Field as="select" name="species" className={css.typeSelects}>
+                    <option value="" disabled hidden>
+                      By type
+                    </option>
+                    <option value="all">Type of pet</option>
+                    {speciesOptions.map((species) => (
+                      <option key={species} value={species}>
+                        {species}
+                      </option>
+                    ))}
+                  </Field>
+                </div>
                 <ErrorMessage
                   name="species"
                   component="div"
@@ -129,9 +153,14 @@ export default function AddPetForm() {
                 />
               </div>
             </div>
-            <button type="submit" className={css.profileEditBtn}>
-              Go to profileeee
-            </button>
+            <div className={css.buttonMenuContainer}>
+              <button type="button" className={css.backButton}>
+                Back
+              </button>
+              <button type="submit" className={css.submitButton}>
+                Submit
+              </button>
+            </div>
           </Form>
         </Formik>
       </div>
