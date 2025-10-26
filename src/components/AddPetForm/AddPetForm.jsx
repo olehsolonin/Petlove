@@ -12,6 +12,28 @@ import { useEffect } from "react";
 import { fetchSpecies } from "../../fetchReq.js";
 import { useSelector, useDispatch } from "react-redux";
 import { addSpecies } from "../../redux/noticesSlice.js";
+import * as Yup from "yup";
+
+const FeedbackSchema = Yup.object().shape({
+  title: Yup.string().required("Title is required"),
+
+  name: Yup.string().required("Pet’s name is required"),
+
+  avatar: Yup.string()
+    .matches(
+      /^https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp)$/i,
+      "Must be a valid image URL (png, jpg, jpeg, gif, bmp, webp)"
+    )
+    .required("Image URL is required"),
+
+  species: Yup.string().required("Species is required"),
+
+  birthday: Yup.string()
+    .matches(/^\d{4}-\d{2}-\d{2}$/, "Date must be in format YYYY-MM-DD")
+    .required("Birthday is required"),
+
+  sex: Yup.string().required("Sex is required"),
+});
 
 export default function AddPetForm() {
   const speciesOptions = useSelector((state) => state.notices.species);
@@ -33,6 +55,10 @@ export default function AddPetForm() {
     email: "",
     phone: "",
     avatar: "",
+    sex: "",
+    title: "",
+    birthday: null,
+    species: "",
   };
 
   const handleSubmit = (values, actions) => {
@@ -44,27 +70,33 @@ export default function AddPetForm() {
         <h1 className={css.petFormTitle}>Add my pet /</h1>
         <p className={css.petFormText}>Personal details</p>
       </div>
-      <div className={css.iconsContainer}>
-        <div className={`${css.iconWrapper} ${css.female}`}>
-          <IoFemale className={`${css.icon} ${css.femaleIcon}`} />
-        </div>
-        <div className={`${css.iconWrapper} ${css.male}`}>
-          <IoMale className={`${css.icon} ${css.maleIcon}`} />
-        </div>
-        <div className={`${css.iconWrapper} ${css.intersex}`}>
-          <PiGenderIntersexBold className={`${css.icon} ${css.intersexIcon}`} />
-        </div>
-      </div>
-      <div className={css.petAvatarContainer}>
-        <IoPawOutline className={css.pawIcon} />
-      </div>
+
       <div className={css.addPetFormContainer}>
         <Formik
           initialValues={initialValues}
           onSubmit={handleSubmit}
-          //  validationSchema={FeedbackSchema}
+          validationSchema={FeedbackSchema}
         >
           <Form className={css.formikForm}>
+            <div className={css.iconsContainer}>
+              <label className={`${css.iconWrapper} ${css.female}`}>
+                <Field type="radio" name="sex" value="female" hidden />
+                <IoFemale className={`${css.icon} ${css.femaleIcon}`} />
+              </label>
+              <label className={`${css.iconWrapper} ${css.male}`}>
+                <Field type="radio" name="sex" value="male" hidden />
+                <IoMale className={`${css.icon} ${css.maleIcon}`} />
+              </label>
+              <label className={`${css.iconWrapper} ${css.intersex}`}>
+                <Field type="radio" name="sex" value="intersex" hidden />
+                <PiGenderIntersexBold
+                  className={`${css.icon} ${css.intersexIcon}`}
+                />
+              </label>
+            </div>
+            <div className={css.petAvatarContainer}>
+              <IoPawOutline className={css.pawIcon} />
+            </div>
             <div className={css.formForm}>
               <div className={css.avatarLinkButtonContainer}>
                 <Field
@@ -116,13 +148,15 @@ export default function AddPetForm() {
                       <DatePicker
                         {...field}
                         selected={field.value ? new Date(field.value) : null}
-                        onChange={(date) =>
-                          form.setFieldValue(field.name, date)
-                        }
-                        dateFormat="dd/MM/yyyy"
+                        onChange={(date) => {
+                          const formattedDate = date
+                            ? date.toISOString().split("T")[0] // "YYYY-MM-DD"
+                            : "";
+                          form.setFieldValue(field.name, formattedDate);
+                        }}
+                        dateFormat="yyyy/MM/dd"
                         placeholderText="Birthday"
                         className={css.calendarPicker}
-                        //   isClearable
                       />
                     )}
                   </Field>
