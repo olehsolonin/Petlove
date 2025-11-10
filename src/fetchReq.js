@@ -93,3 +93,14 @@ export const fetchEditUser = async (userData, someToken) => {
 	console.log(response);
 	return response;
 };
+
+export const fetchAddPet = async (petData, someToken) => {
+	const response = await axios.post(`/users/current/pets/add`, petData, {
+		headers: {
+			Authorization: `Bearer ${someToken}`,
+		},
+	});
+	console.log(response.data);
+	return response.data;
+
+};

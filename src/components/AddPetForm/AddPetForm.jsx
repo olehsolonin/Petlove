@@ -9,17 +9,20 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { CiCalendar } from "react-icons/ci";
 import { useEffect } from "react";
-import { fetchSpecies } from "../../fetchReq.js";
+import { fetchSpecies, fetchAddPet } from "../../fetchReq.js";
 import { useSelector, useDispatch } from "react-redux";
 import { addSpecies } from "../../redux/noticesSlice.js";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const FeedbackSchema = Yup.object().shape({
   title: Yup.string().required("Title is required"),
 
   name: Yup.string().required("Pet’s name is required"),
 
-  avatar: Yup.string()
+  imgURL: Yup.string()
     .matches(
       /^https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp)$/i,
       "Must be a valid image URL (png, jpg, jpeg, gif, bmp, webp)"
@@ -36,6 +39,7 @@ const FeedbackSchema = Yup.object().shape({
 });
 
 export default function AddPetForm() {
+  const navigate = useNavigate();
   const speciesOptions = useSelector((state) => state.notices.species);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -52,9 +56,7 @@ export default function AddPetForm() {
 
   const initialValues = {
     name: "",
-    email: "",
-    phone: "",
-    avatar: "",
+    imgURL: "",
     sex: "",
     title: "",
     birthday: null,
@@ -62,8 +64,25 @@ export default function AddPetForm() {
   };
 
   const handleSubmit = (values, actions) => {
+    const currentToken = window.localStorage.getItem("token");
     console.log(values);
+    const addNewPet = async () => {
+      try {
+        const response = await fetchAddPet(values, currentToken);
+        console.log("Pet added successfully:", response);
+        navigate("/profile", { replace: true });
+      } catch (error) {
+        console.error("Error adding pet:", error);
+        toast.error("Error adding pet", { position: "top-center" });
+      }
+    };
+    addNewPet();
   };
+
+  const handleBackClick = () => {
+    navigate("/profile", { replace: true });
+  };
+
   return (
     <div className={css.petFormContainer}>
       <div className={css.addPetFormTitle}>
@@ -101,12 +120,12 @@ export default function AddPetForm() {
               <div className={css.avatarLinkButtonContainer}>
                 <Field
                   type="text"
-                  name="avatar"
+                  name="imgURL"
                   className={css.formStyleAvatar}
                   placeholder="Enter URL"
                 />
                 <ErrorMessage
-                  name="avatar"
+                  name="imgURL"
                   component="div"
                   className={css.errorText}
                 />
@@ -188,7 +207,11 @@ export default function AddPetForm() {
               </div>
             </div>
             <div className={css.buttonMenuContainer}>
-              <button type="button" className={css.backButton}>
+              <button
+                type="button"
+                className={css.backButton}
+                onClick={handleBackClick}
+              >
                 Back
               </button>
               <button type="submit" className={css.submitButton}>
@@ -198,6 +221,7 @@ export default function AddPetForm() {
           </Form>
         </Formik>
       </div>
+      <ToastContainer />
     </div>
   );
 }
