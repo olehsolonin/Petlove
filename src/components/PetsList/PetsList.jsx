@@ -6,9 +6,9 @@ export default function PetsList() {
     const userPetsData = useSelector((state) => state.userInfo.pets);
     console.log('news из store:', userPetsData);
     return (
-        <div className={css.PetsListContainer}>
+        <div className={css.petsListContainer}>
             {userPetsData.length > 0 ? (
-                <ul className={css.PetsListList}>
+                <ul className={css.petsUl}>
                     {userPetsData.map((pet) => {
                         return (
                             <li key={pet._id}>
