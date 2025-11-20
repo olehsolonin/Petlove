@@ -104,3 +104,14 @@ export const fetchAddPet = async (petData, someToken) => {
 	return response.data;
 
 };
+
+export const fetchSignOut = async (someToken) => {
+	console.log(someToken);
+	const response = await axios.post(`/users/signout`, null, {
+		headers: {
+			Authorization: `Bearer ${someToken}`,
+		},
+	});
+	console.log(response.data);
+	return response.data;
+}

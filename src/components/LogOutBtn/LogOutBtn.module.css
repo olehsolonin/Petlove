@@ -1,0 +1,18 @@
+.logOutBtn {
+    border-radius: 30px;
+    padding: 12px;
+    width: 114px;
+    height: 42px;
+    background: #fff4df;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: #f6b83d;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
