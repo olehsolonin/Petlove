@@ -115,3 +115,18 @@ export const fetchSignOut = async (someToken) => {
 	console.log(response.data);
 	return response.data;
 }
+
+export const fetchDeletePet = async (id, someToken) => {
+	try {
+		const response = await axios.delete(`/users/current/pets/remove/${id}`, {
+			headers: {
+				Authorization: `Bearer ${someToken}`,
+			},
+		});
+		console.log(response.data);
+		return response.data.pets;
+	} catch (error) {
+		console.error('Error deleting pet:', error);
+
+	}
+}

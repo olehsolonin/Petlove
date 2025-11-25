@@ -1,10 +1,19 @@
 import css from './PetsItem.module.css';
 import { RiDeleteBin5Line } from 'react-icons/ri';
+import { fetchDeletePet } from '../../fetchReq.js';
+import { useSelector, useDispatch } from 'react-redux';
+import { userDataPets } from '../../redux/userInfoSlice.js';
 
 export default function PetsItem({ pets }) {
-    const handleSubmit = () => {
-        console.log('salam brat');
+    const dispatch = useDispatch();
+    const token = useSelector((state) => state.auth.token);
+    const handleSubmit = async (petId) => {
+        console.log(token);
+        console.log('PetID:', petId);
+        const res = await fetchDeletePet(petId, token);
+        dispatch(userDataPets(res));
     };
+
     const {
         imgURL,
         title,
@@ -50,8 +59,7 @@ export default function PetsItem({ pets }) {
                 </div>
             </div>
             <div className={css.deleteButtonContainer}>
-                <button type="button" onClick={handleSubmit}>
-                    {' '}
+                <button type="button" onClick={() => handleSubmit(_id)}>
                     <RiDeleteBin5Line className={css.deleteIcon} />
                 </button>
             </div>
