@@ -11,8 +11,6 @@ import { IoClose } from 'react-icons/io5';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-Modal.setAppElement('#root');
-
 export default function LogOutBtn() {
     const token = useSelector((state) => state.auth.token);
     const navigate = useNavigate();

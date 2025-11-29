@@ -1,0 +1,126 @@
+.modalContainer {
+    border-radius: 30px;
+    width: 335px;
+    height: 394px;
+    background: #fff;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.attentionIconContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    fill: #fff4df;
+    width: 80px;
+    height: 80px;
+    background: #fff4df;
+}
+
+.dogLogoIcon {
+    width: 44px;
+    height: 44px;
+}
+
+.modalTextBtnContainer {
+    width: 295px;
+    height: 214px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: #f6b83d;
+}
+
+.textContainer {
+    width: 295px;
+    height: 108px;
+}
+.modalText {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: #2b2b2a;
+}
+
+.mainBtnsContainer {
+    width: 272px;
+    height: 42px;
+    display: flex;
+    gap: 8px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.logInBtn {
+    border-radius: 30px;
+    padding: 12px;
+    width: 135px;
+    height: 42px;
+    background: #f6b83d;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.03em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.regBtn {
+    border-radius: 30px;
+    padding: 12px;
+    width: 129px;
+    height: 42px;
+    background: #fff4df;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.03em;
+    color: #f6b83d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.closeBtnContainer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.closeIconBtn {
+    width: 12px;
+    height: 12px;
+    stroke-width: 2px;
+    stroke: #262626;
+}

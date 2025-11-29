@@ -1,0 +1,188 @@
+.modalContainer {
+    border-radius: 30px;
+    width: 335px;
+    height: 476px;
+    background: #fff;
+    padding: 40px 28px;
+    position: relative;
+    /* display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    position: relative;
+    margin: 0 auto; */
+}
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.petImgContainer {
+    border-radius: 100%;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+}
+
+.petIconImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.titlePopularity {
+    width: 197px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 10px;
+}
+
+.someTitle {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 125%;
+    color: #2b2b2a;
+}
+
+.fullDataContainer {
+    width: 243px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 27px;
+    margin-bottom: 16px;
+}
+
+.petInfoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.req {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    color: rgba(38, 38, 38, 0.5);
+}
+.res {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 117%;
+    letter-spacing: -0.02em;
+    color: #262626;
+    white-space: nowrap;
+}
+
+.commentContainer {
+    width: 279px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.02em;
+    color: #2b2b2a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 32px;
+}
+.comment {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.02em;
+    color: #2b2b2a;
+}
+
+.priceContainer {
+    margin: 0 auto;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 125%;
+    color: #2b2b2a;
+    margin-bottom: 20px;
+}
+
+.buttonsContainer {
+    width: 279px;
+    height: 44px;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.addBtn {
+    border-radius: 30px;
+    padding: 12px 31px;
+    width: 135px;
+    height: 44px;
+    background: #f6b83d;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    letter-spacing: -0.03em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    gap: 8px;
+}
+
+.heartButton {
+    stroke-width: 1.5px;
+    stroke: #fff;
+    width: 18px;
+    height: 18px;
+}
+
+.contactBtn {
+    border-radius: 30px;
+    padding: 12px;
+    width: 134px;
+    height: 44px;
+    background: #fff4df;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    letter-spacing: -0.03em;
+    color: #f6b83d;
+}
+
+.closeBtnContainer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.closeIconBtn {
+    width: 12px;
+    height: 12px;
+    stroke-width: 2px;
+    stroke: #262626;
+}

@@ -130,3 +130,13 @@ export const fetchDeletePet = async (id, someToken) => {
 
 	}
 }
+
+export const fetchFullPetInfoById = async (id, someToken) => {
+	const response = await axios.get(`/notices/${id}`, {
+		headers: {
+			Authorization: `Bearer ${someToken}`,
+		},
+	});
+	console.log(response.data);
+	return response.data;
+}

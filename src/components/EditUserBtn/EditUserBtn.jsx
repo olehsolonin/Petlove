@@ -26,9 +26,6 @@ import {
     userDataClear,
 } from '../../redux/userInfoSlice.js';
 
-// обязательно для доступности
-Modal.setAppElement('#root');
-
 const FeedbackSchema = Yup.object().shape({
     name: Yup.string()
         .min(2, 'Too Short!')

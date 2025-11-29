@@ -1,193 +1,193 @@
 .noticesItemContainer {
-  border-radius: 16px;
-  padding: 24px;
-  max-width: 335px;
-  height: 454px;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 335px;
+    height: 454px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .imageContainer {
-  border-radius: 16px;
-  width: 287px;
-  height: 178px;
-  object-fit: cover;
+    border-radius: 16px;
+    width: 287px;
+    height: 178px;
+    object-fit: cover;
 }
 
 .imageSettings {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 16px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
 }
 
 .descriptionContainer {
-  width: 287px;
-  height: 204px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+    width: 287px;
+    height: 204px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .titleTextWrap {
-  width: 287px;
-  height: 110px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+    width: 287px;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .titlePopularityWrap {
-  width: 287px;
-  height: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+    width: 287px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .detailsTextWrap {
-  width: 287px;
-  height: 30px;
-  display: flex;
-  flex-direction: row;
-  gap: 13px;
+    width: 287px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 13px;
 }
 
 .detailsContainer {
-  width: 287px;
-  height: 58px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+    width: 287px;
+    height: 58px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .commentContainer {
-  width: 287px;
-  height: 36px;
-  font-family: "Manrope", sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 129%;
-  letter-spacing: -0.02em;
-  color: #2b2b2a;
+    width: 287px;
+    height: 36px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.02em;
+    color: #2b2b2a;
 }
 
 .popularityBlock {
-  min-width: 34px;
-  height: 20px;
-  display: flex;
-  flex-direction: row;
-  gap: 4px;
-  justify-content: center;
-  align-items: center;
+    min-width: 34px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
 }
 
 .title {
-  font-family: "Manrope", sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 125%;
-  color: #2b2b2a;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 125%;
+    color: #2b2b2a;
 }
 
 .starWrap {
-  width: 16px;
-  height: 16px;
-  display: block;
+    width: 16px;
+    height: 16px;
+    display: block;
 }
 
 .star {
-  width: 100%;
-  height: 100%;
-  /* fill: #ffc531; */
-  color: #ffc531;
+    width: 100%;
+    height: 100%;
+    /* fill: #ffc531; */
+    color: #ffc531;
 }
 
 .detailsTitle {
-  font-family: "Manrope", sans-serif;
-  font-weight: 500;
-  font-size: 10px;
-  line-height: 140%;
-  letter-spacing: -0.02em;
-  color: rgba(38, 38, 38, 0.5);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    color: rgba(38, 38, 38, 0.5);
 }
 
 .detailsSmallBlocks {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
 .fetchDetails {
-  font-family: "Manrope", sans-serif;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 117%;
-  letter-spacing: -0.02em;
-  color: #262626;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 117%;
+    letter-spacing: -0.02em;
+    color: #262626;
 }
 
 .commentText {
-  font-family: "Manrope", sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 129%;
-  letter-spacing: -0.02em;
-  color: #2b2b2a;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.02em;
+    color: #2b2b2a;
 }
 
 .priceCategory {
-  font-family: "Manrope", sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 125%;
-  color: #2b2b2a;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 125%;
+    color: #2b2b2a;
 }
 
 .buttonLikeBlock {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
 
 .learnButton {
-  border-radius: 30px;
-  /* padding: 14px 80px; */
-  margin: 0 auto;
-  width: 231px;
-  height: 46px;
-  background: #f6b83d;
-  font-family: "Manrope", sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 129%;
-  letter-spacing: -0.03em;
-  color: #fff;
+    border-radius: 30px;
+    /* padding: 14px 80px; */
+    margin: 0 auto;
+    width: 231px;
+    height: 46px;
+    background: #f6b83d;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.03em;
+    color: #fff;
 }
 
 .likeButton {
-  border-radius: 30px;
-  padding: 14px;
-  width: 46px;
-  height: 46px;
-  background: #fff4df;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    border-radius: 30px;
+    padding: 14px;
+    width: 46px;
+    height: 46px;
+    background: #fff4df;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .heartButton {
-  fill: #f6b83d;
-  width: 18px;
-  height: 18px;
+    fill: #f6b83d;
+    width: 18px;
+    height: 18px;
 }
 
 .priceLinkWrap {
-	width: 287px;
-height: 78px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+    width: 287px;
+    height: 78px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
