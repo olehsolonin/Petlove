@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import Title from '../Title/Title';
 import { fetchSignin } from '../../fetchReq.js';
 import { login } from '../../redux/authSlice.js';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const initialValues = {
@@ -111,7 +111,6 @@ export default function LoginForm() {
                     </div>
                 </Form>
             </Formik>
-            <ToastContainer />
         </div>
     );
 }

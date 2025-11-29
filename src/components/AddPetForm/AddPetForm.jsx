@@ -14,7 +14,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addSpecies } from '../../redux/noticesSlice.js';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const FeedbackSchema = Yup.object().shape({
@@ -263,7 +263,6 @@ export default function AddPetForm() {
                     </Form>
                 </Formik>
             </div>
-            <ToastContainer />
         </div>
     );
 }
