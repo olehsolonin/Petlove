@@ -140,3 +140,21 @@ export const fetchFullPetInfoById = async (id, someToken) => {
 	console.log(response.data);
 	return response.data;
 }
+
+export const fetchAddToFavourites = async (id, someToken) => {
+	const response = await axios.post(`/notices/favorites/add/${id}`, null, {
+		headers: {
+			Authorization: `Bearer ${someToken}`,
+		},
+	});
+	console.log(response.data);
+	return response;
+}
+
+export const fetchRemoveFromFavourites = async (id, someToken) => {
+	const response = await axios.delete(`/notices/favorites/remove/${id}`, {
+		headers: { Authorization: `Bearer ${someToken}`, },
+	});
+	console.log(response.data);
+	return response.data;
+}

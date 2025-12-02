@@ -2,9 +2,28 @@ import Modal from 'react-modal';
 import css from './ModalNotice.module.css';
 import { CiHeart } from 'react-icons/ci';
 import { IoClose } from 'react-icons/io5';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchAddToFavourites } from '../../fetchReq.js';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function ModalNotice({ isOpen, onClose, data }) {
     console.log(data);
+    const token = useSelector((state) => state.auth.token);
+    const addFavourite = async () => {
+        try {
+            const res = await fetchAddToFavourites(data._id, token);
+            if (res.status === 200) {
+                toast.success('Pet added successfully', {
+                    position: 'top-center',
+                });
+                onClose();
+            }
+            console.log(res);
+        } catch (error) {
+            console.log(error);
+        }
+    };
     if (!isOpen) return null; // ✅ защита
     return (
         <Modal
@@ -62,13 +81,19 @@ export default function ModalNotice({ isOpen, onClose, data }) {
                         )}
                     </div>
                     <div className={css.buttonsContainer}>
-                        <button className={css.addBtn} type="button">
+                        <button
+                            className={css.addBtn}
+                            type="button"
+                            onClick={addFavourite}
+                        >
                             Add to
                             <span>
                                 <CiHeart className={css.heartButton} />
                             </span>
                         </button>
-                        <button className={css.contactBtn}>Contact</button>
+                        <button className={css.contactBtn} type="button">
+                            Contact
+                        </button>
                     </div>
                     <button className={css.closeBtnContainer} onClick={onClose}>
                         <IoClose className={css.closeIconBtn} />
