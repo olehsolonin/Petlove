@@ -3,7 +3,10 @@ import css from './ModalNotice.module.css';
 import { CiHeart } from 'react-icons/ci';
 import { IoClose } from 'react-icons/io5';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchAddToFavourites } from '../../fetchReq.js';
+import {
+    fetchAddToFavourites,
+    fetchRemoveFromFavourites,
+} from '../../fetchReq.js';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -24,6 +27,21 @@ export default function ModalNotice({ isOpen, onClose, data }) {
             console.log(error);
         }
     };
+    const removeFavourite = async () => {
+        try {
+            const res = await fetchRemoveFromFavourites(data._id, token);
+            if (res.status === 200) {
+                toast.success('Pet remove successfully', {
+                    position: 'top-center',
+                });
+                onClose();
+                console.log(res);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     if (!isOpen) return null; // ✅ защита
     return (
         <Modal
