@@ -1,0 +1,68 @@
+.favoritesPetItem {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.petImgContainer {
+    border-radius: 16px;
+    width: 287px;
+    height: 178px;
+}
+
+.petImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.fullPetInfoContainer {
+    width: 287px;
+    height: 204px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.titleInfoBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.comment {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.02em;
+    color: #2b2b2a;
+}
+
+.justInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.titlePopularityContainer {
+    width: 287px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.petTitle {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 125%;
+    color: #2b2b2a;
+}
+
+.popularity {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    color: #2b2b2a;
+}
