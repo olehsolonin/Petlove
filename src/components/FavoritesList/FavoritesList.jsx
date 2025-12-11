@@ -10,6 +10,11 @@ export const FavoritesList = () => {
             {favorites.length > 0 ? (
                 <ul className={css.favoritesList}>
                     {favorites.map((item) => {
+                        console.log(
+                            'favorites:',
+                            favorites.map((f) => f._id)
+                        );
+
                         return (
                             <li
                                 key={item._id}
