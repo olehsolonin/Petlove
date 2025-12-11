@@ -1,6 +1,9 @@
 import css from './FavoritesItem.module.css';
 import { RiDeleteBin5Line } from 'react-icons/ri';
-import { fetchRemoveFromFavourites } from '../../fetchReq.js';
+import {
+    fetchRemoveFromFavourites,
+    fetchFullUserInfo,
+} from '../../fetchReq.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { userDataNoticesFavorites } from '../../redux/userInfoSlice.js';
 
@@ -25,11 +28,16 @@ export default function FavoritesItem({ data }) {
         price,
     } = data;
 
-    const handleSubmit = async (petId) => {
-        console.log('PetID:', petId);
-        const res = await fetchRemoveFromFavourites(petId, token);
-        dispatch(userDataNoticesFavorites(res));
+    const handleSubmit = async () => {
+        try {
+            await fetchRemoveFromFavourites(_id, token);
+            const fullUser = await fetchFullUserInfo(token);
+            dispatch(userDataNoticesFavorites(fullUser.noticesFavorites));
+        } catch (error) {
+            console.error(error);
+        }
     };
+
     return (
         <div className={css.favoritesPetItem}>
             <div className={css.petImgContainer}>
