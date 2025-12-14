@@ -11,6 +11,9 @@ export default function NoticesItem({ notice }) {
     const token = useSelector((state) => state.auth.token);
     const dispatch = useDispatch();
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+    const favoritesPetsId = useSelector(
+        (state) => state.userInfo.noticesFavorites
+    );
 
     const [isAttentionModalOpen, setIsAttentionModalOpen] = useState(false);
     const [isNoticeModalOpen, setIsNoticeModalOpen] = useState(false);
@@ -47,6 +50,14 @@ export default function NoticesItem({ notice }) {
         _id,
     } = notice; // Деструктуризируем внутри
     //   console.log(title);
+
+    const currentFavPetsId = favoritesPetsId.map((pet) => {
+        return pet._id;
+    });
+    console.log(currentFavPetsId);
+
+    const isFavourite = currentFavPetsId.includes(_id);
+    console.log(isFavourite);
     return (
         <div className={css.noticesItemContainer}>
             <div className={css.imageContainer}>
