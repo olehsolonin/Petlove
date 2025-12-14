@@ -155,6 +155,6 @@ export const fetchRemoveFromFavourites = async (id, someToken) => {
 	const response = await axios.delete(`/notices/favorites/remove/${id}`, {
 		headers: { Authorization: `Bearer ${someToken}`, },
 	});
-	console.log(response.data);
-	return response.data;
+	console.log(response);
+	return response;
 }

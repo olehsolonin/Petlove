@@ -4,12 +4,20 @@ import {
     fetchRemoveFromFavourites,
     fetchFullUserInfo,
 } from '../../fetchReq.js';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { userDataNoticesFavorites } from '../../redux/userInfoSlice.js';
+import ModalNotice from '../ModalNotice/ModalNotice.jsx';
+import { fetchFullPetInfoById } from '../../fetchReq.js';
 
 export default function FavoritesItem({ data }) {
     const dispatch = useDispatch();
     const token = useSelector((state) => state.auth.token);
+
+    const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
+    const [isNoticeModalOpen, setIsNoticeModalOpen] = useState(false);
+    const [details, setDetails] = useState(null);
     const {
         birthday,
         title,
@@ -35,6 +43,16 @@ export default function FavoritesItem({ data }) {
             dispatch(userDataNoticesFavorites(fullUser.noticesFavorites));
         } catch (error) {
             console.error(error);
+        }
+    };
+
+    const handleLearnMore = async () => {
+        try {
+            const res = await fetchFullPetInfoById(_id, token);
+            setDetails(res);
+            setIsNoticeModalOpen(true);
+        } catch (err) {
+            console.log('Error loading details:', err);
         }
     };
 
@@ -91,7 +109,11 @@ export default function FavoritesItem({ data }) {
                         )}
                     </div>
                     <div className={css.learnDeleteBtns}>
-                        <button className={css.learnMoreBtn} type="button">
+                        <button
+                            className={css.learnMoreBtn}
+                            type="button"
+                            onClick={handleLearnMore}
+                        >
                             Learn more
                         </button>
                         <button
@@ -104,6 +126,13 @@ export default function FavoritesItem({ data }) {
                     </div>
                 </div>
             </div>
+            {isNoticeModalOpen && details && (
+                <ModalNotice
+                    isOpen={isNoticeModalOpen}
+                    onClose={() => setIsNoticeModalOpen(false)}
+                    data={details}
+                />
+            )}
         </div>
     );
 }

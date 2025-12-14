@@ -2,24 +2,48 @@ import Modal from 'react-modal';
 import css from './ModalNotice.module.css';
 import { CiHeart } from 'react-icons/ci';
 import { IoClose } from 'react-icons/io5';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
     fetchAddToFavourites,
     fetchRemoveFromFavourites,
+    fetchFullUserInfo,
 } from '../../fetchReq.js';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { userDataAll } from '../../redux/userInfoSlice.js';
 
 export default function ModalNotice({ isOpen, onClose, data }) {
     console.log(data);
     const token = useSelector((state) => state.auth.token);
+    const dispatch = useDispatch();
+
+    const favoritesPetsId = useSelector(
+        (state) => state.userInfo.noticesFavorites
+    );
+
+    const currentFavPetsId = favoritesPetsId.map((pet) => {
+        return pet._id;
+    });
+    console.log(currentFavPetsId);
+
+    const isFavourite = currentFavPetsId.includes(data?._id);
+    console.log(isFavourite);
+    const refreshUser = async () => {
+        const fresh = await fetchFullUserInfo(token);
+        dispatch(userDataAll(fresh));
+    };
+
     const addFavourite = async () => {
         try {
+            if (!data?._id) return;
+            if (isFavourite) return;
             const res = await fetchAddToFavourites(data._id, token);
             if (res.status === 200) {
                 toast.success('Pet added successfully', {
                     position: 'top-center',
                 });
+                await refreshUser();
                 onClose();
             }
             console.log(res);
@@ -29,11 +53,14 @@ export default function ModalNotice({ isOpen, onClose, data }) {
     };
     const removeFavourite = async () => {
         try {
+            if (!data?._id) return;
+            if (!isFavourite) return;
             const res = await fetchRemoveFromFavourites(data._id, token);
             if (res.status === 200) {
                 toast.success('Pet remove successfully', {
                     position: 'top-center',
                 });
+                await refreshUser();
                 onClose();
                 console.log(res);
             }
@@ -102,9 +129,11 @@ export default function ModalNotice({ isOpen, onClose, data }) {
                         <button
                             className={css.addBtn}
                             type="button"
-                            onClick={addFavourite}
+                            onClick={
+                                isFavourite ? removeFavourite : addFavourite
+                            }
                         >
-                            Add to
+                            {isFavourite ? 'Remove' : 'Add to'}
                             <span>
                                 <CiHeart className={css.heartButton} />
                             </span>
