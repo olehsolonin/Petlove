@@ -5,7 +5,15 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ModalAttention from '../ModalAttention/ModalAttention.jsx';
 import ModalNotice from '../ModalNotice/ModalNotice.jsx';
-import { fetchFullPetInfoById } from '../../fetchReq.js';
+import {
+    fetchFullPetInfoById,
+    fetchAddToFavourites,
+    fetchRemoveFromFavourites,
+    fetchFullUserInfo,
+} from '../../fetchReq.js';
+import { userDataAll } from '../../redux/userInfoSlice.js';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function NoticesItem({ notice }) {
     const token = useSelector((state) => state.auth.token);
@@ -58,6 +66,47 @@ export default function NoticesItem({ notice }) {
 
     const isFavourite = currentFavPetsId.includes(_id);
     console.log(isFavourite);
+
+    const refreshUser = async () => {
+        const fresh = await fetchFullUserInfo(token);
+        dispatch(userDataAll(fresh));
+    };
+
+    const addFavourite = async () => {
+        try {
+            if (!_id) return;
+            // if (isFavourite) return;
+            const res = await fetchAddToFavourites(_id, token);
+            if (res.status === 200) {
+                toast.success('Pet added successfully', {
+                    position: 'top-center',
+                });
+                await refreshUser();
+            }
+            console.log(res);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    const removeFavourite = async () => {
+        try {
+            if (!_id) return;
+            // if (!isFavourite) return;
+            const res = await fetchRemoveFromFavourites(_id, token);
+            if (res.status === 200) {
+                toast.success('Pet remove successfully', {
+                    position: 'top-center',
+                });
+                await refreshUser();
+                console.log(res);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    //  const fastAddRemoveFavourite = async () => {};
+
     return (
         <div className={css.noticesItemContainer}>
             <div className={css.imageContainer}>
@@ -121,7 +170,17 @@ export default function NoticesItem({ notice }) {
                         >
                             Learn more
                         </button>
-                        <button type="button" className={css.likeButton}>
+                        <button
+                            type="button"
+                            className={
+                                isFavourite
+                                    ? css.likeButtonFavored
+                                    : css.likeButton
+                            }
+                            onClick={
+                                isFavourite ? removeFavourite : addFavourite
+                            }
+                        >
                             <CiHeart className={css.heartButton} />
                         </button>
                     </div>

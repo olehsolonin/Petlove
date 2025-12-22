@@ -178,6 +178,17 @@
     align-items: center;
 }
 
+.likeButtonFavored {
+    border-radius: 30px;
+    padding: 14px;
+    width: 46px;
+    height: 46px;
+    background: #fbe7c1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .heartButton {
     fill: #f6b83d;
     width: 18px;
