@@ -9,6 +9,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { userDataNoticesFavorites } from '../../redux/userInfoSlice.js';
 import ModalNotice from '../ModalNotice/ModalNotice.jsx';
 import { fetchFullPetInfoById } from '../../fetchReq.js';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function FavoritesItem({ data }) {
     const dispatch = useDispatch();
@@ -41,6 +43,9 @@ export default function FavoritesItem({ data }) {
             await fetchRemoveFromFavourites(_id, token);
             const fullUser = await fetchFullUserInfo(token);
             dispatch(userDataNoticesFavorites(fullUser.noticesFavorites));
+            toast.success('Pet remove successfully', {
+                position: 'top-center',
+            });
         } catch (error) {
             console.error(error);
         }
