@@ -1,0 +1,155 @@
+.viewedPetItem {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.petImgContainer {
+    border-radius: 16px;
+    width: 287px;
+    height: 178px;
+}
+
+.petImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.fullPetInfoContainer {
+    width: 287px;
+    height: 204px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.titleInfoBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.comment {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.02em;
+    color: #2b2b2a;
+}
+
+.justInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.titlePopularityContainer {
+    width: 287px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.petTitle {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 125%;
+    color: #2b2b2a;
+}
+
+.popularity {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    color: #2b2b2a;
+}
+
+.petDetails {
+    width: 287px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    justify-content: space-between;
+}
+
+.petDetailsInfo {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    color: rgba(38, 38, 38, 0.5);
+}
+
+.petData {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 117%;
+    letter-spacing: -0.02em;
+    color: #262626;
+}
+
+.petDetailItem {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.priceLearnContainer {
+    width: 285px;
+    height: 78px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.petPrice {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 125%;
+    color: #2b2b2a;
+}
+
+.learnDeleteBtns {
+    width: 285px;
+    height: 46px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.learnMoreBtn {
+    border-radius: 30px;
+    padding: 14px;
+    width: 287px;
+    height: 46px;
+    background: #f6b83d;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.03em;
+    color: #fff;
+}
+
+.deleteBtn {
+    border-radius: 30px;
+    padding: 10px;
+    width: 44px;
+    height: 44px;
+    background: #fff4df;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deleteIcon {
+    width: 18px;
+    height: 18px;
+    stroke-width: 1.5px;
+    stroke: #f6b83d;
+}

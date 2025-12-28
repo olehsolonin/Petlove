@@ -1,0 +1,19 @@
+.viewedListContainer {
+    width: 335px;
+}
+
+.viewedList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.viewedListItem {
+    border-radius: 16px;
+    padding: 24px;
+    width: 335px;
+    height: 454px;
+    background: #fff;
+}

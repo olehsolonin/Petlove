@@ -1,9 +1,9 @@
 .profileContainer {
-  min-width: 320px;
-  max-width: 374px;
-  height: 2766px;
-  padding: 24px 20px 56px 20px;
-  background: #f9f9f9;
+    min-width: 320px;
+    max-width: 374px;
+    min-height: 1042px;
+    padding: 24px 20px 56px 20px;
+    background: #f9f9f9;
 }
 
 /* .profileBlock {
