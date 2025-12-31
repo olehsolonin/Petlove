@@ -1,10 +1,12 @@
 .newsListContainer {
-  width: 335px;
-  height: 2374px;
+    width: 335px;
+    height: 2374px;
+    margin-top: 24px;
+    background: #f9f9f9;
 }
 
 .newsList {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }

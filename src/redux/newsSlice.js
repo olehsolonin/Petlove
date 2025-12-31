@@ -1,26 +1,43 @@
-// src/redux/tasksSlice.js
-
 import { createSlice } from "@reduxjs/toolkit";
 
 const slice = createSlice({
-	// Ім'я слайсу
 	name: "news",
-	// Початковий стан редюсера слайсу
 	initialState: {
 		items: [],
+
+		// meta для пагинации
+		page: 1,
+		perPage: 5,
+		totalPages: 1,
+
+		// текущий поисковый запрос
+		keyword: "",
 	},
-	// Об'єкт case-редюсерів
 	reducers: {
+		// совместимость: как раньше
 		addNews(state, action) {
-			// ✅ Immer замінить це на операцію оновлення
-			state.items = action.payload;
+			state.items = action.payload ?? [];
 		},
 
+		setKeyword(state, action) {
+			state.keyword = action.payload;
+		},
+
+		setPage(state, action) {
+			state.page = action.payload;
+		},
+
+		// сохраняем полный ответ бэка
+		setNewsResponse(state, action) {
+			const { results, page, perPage, totalPages } = action.payload || {};
+
+			state.items = results ?? [];
+			state.page = page ?? 1;
+			state.perPage = perPage ?? state.perPage;
+			state.totalPages = totalPages ?? 1;
+		},
 	},
 });
 
-// Експортуємо фабрики екшенів
-export const { addNews } = slice.actions;
-
-// Експортуємо редюсер слайсу
+export const { addNews, setKeyword, setPage, setNewsResponse } = slice.actions;
 export default slice.reducer;

@@ -3,18 +3,16 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://petlove.b.goit.study/api';
 
-export const fetchNews = async (filter) => {
-
-	const params = new URLSearchParams({
-		_limit: 5,
-		_page: 1,
+export const fetchNews = async ({ keyword = "", page = 1, limit = 5 } = {}) => {
+	const response = await axios.get("/news", {
+		params: {
+			keyword,
+			page,
+			limit,
+		},
 	});
-	console.log(params)
-	const response = await axios.get(`/news?keyword=${filter.keyword}&${params}`);
-	// const response = await axios.get(`?${params}`);
-	console.log(response.data);
-	return response.data;
 
+	return response.data; // ожидаем { page, perPage, totalPages, results }
 };
 
 export const fetchFriends = async () => {
