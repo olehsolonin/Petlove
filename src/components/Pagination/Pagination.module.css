@@ -1,0 +1,54 @@
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* gap: 10px; */
+    margin-top: 44px;
+}
+
+.btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    stroke-width: 1px;
+    stroke: rgba(38, 38, 38, 0.05);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 129%;
+
+    color: #111;
+    cursor: pointer;
+    user-select: none;
+
+    transition: transform 120ms ease, opacity 120ms ease,
+        border-color 120ms ease;
+}
+
+.btn:hover:not(:disabled):not(.active) {
+    transform: translateY(-1px);
+    border-color: rgba(0, 0, 0, 0.22);
+}
+
+.btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.active {
+    background: #f7b733;
+    border-color: #f7b733;
+    color: #fff;
+}
+
+/* три точки НЕ кликабельны */
+.dots {
+    pointer-events: none;
+    cursor: default;
+    border-color: rgba(0, 0, 0, 0.08);
+    color: rgba(0, 0, 0, 0.65);
+}

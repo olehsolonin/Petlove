@@ -1,27 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const slice = createSlice({
-	// Ім'я слайсу
 	name: "notices",
-	// Початковий стан редюсера слайсу
 	initialState: {
 		categories: [],
 		sex: [],
 		species: [],
 		locations: [],
-		fetchParams: [],
+
+		fetchParams: {}, // фильтры (объект)
+
 		results: {
 			page: 1,
 			perPage: 6,
 			results: [],
-			totalPages: null,
+			totalPages: 1,
 		},
-
 	},
-	// Об'єкт case-редюсерів
+
 	reducers: {
 		addCategories(state, action) {
-			// ✅ Immer замінить це на операцію оновлення
 			state.categories = action.payload;
 		},
 		addSex(state, action) {
@@ -33,18 +31,41 @@ const slice = createSlice({
 		addLocations(state, action) {
 			state.locations = action.payload;
 		},
+
 		addParams(state, action) {
 			state.fetchParams = action.payload;
 		},
+
+		// Меняем страницу (Pagination будет дергать это)
+		setPage(state, action) {
+			state.results.page = action.payload;
+		},
+
+		// Сохраняем полный ответ сервера
+		setNoticesResponse(state, action) {
+			const { page, perPage, totalPages, results } = action.payload;
+			state.results.page = page;
+			state.results.perPage = perPage;
+			state.results.totalPages = totalPages;
+			state.results.results = results;
+		},
+
+		// оставим на всякий (если где-то используется)
 		addResults(state, action) {
 			state.results.results = action.payload;
-		}
-
+		},
 	},
 });
 
-// Експортуємо фабрики екшенів
-export const { addCategories, addSex, addSpecies, addLocations, addParams, addResults } = slice.actions;
+export const {
+	addCategories,
+	addSex,
+	addSpecies,
+	addLocations,
+	addParams,
+	setPage,
+	setNoticesResponse,
+	addResults,
+} = slice.actions;
 
-// Експортуємо редюсер слайсу
 export default slice.reducer;

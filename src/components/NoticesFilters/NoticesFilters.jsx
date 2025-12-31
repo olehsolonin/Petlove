@@ -6,7 +6,6 @@ import {
     fetchSex,
     fetchSpecies,
     fetchLocations,
-    fetchAllNotices,
 } from '../../fetchReq';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -15,11 +14,11 @@ import {
     addSpecies,
     addLocations,
     addParams,
-    addResults,
+    setPage,
 } from '../../redux/noticesSlice.js';
 import { useId } from 'react';
 import { Formik, Form, Field } from 'formik';
-import Select from 'react-select';
+// import Select from 'react-select';
 import LocationSelect from '../Select/Select.jsx';
 
 export default function NoticesFilters() {
@@ -70,7 +69,7 @@ export default function NoticesFilters() {
     const categories = useSelector((state) => state.notices.categories);
     const sexOptions = useSelector((state) => state.notices.sex);
     const speciesOptions = useSelector((state) => state.notices.species);
-    const locationsOptions = useSelector((state) => state.notices.locations);
+    //  const locationsOptions = useSelector((state) => state.notices.locations);
 
     const initialValues = {
         keyword: '',
@@ -88,7 +87,6 @@ export default function NoticesFilters() {
 
     const handleSubmit = (values, actions) => {
         const cleanedValues = {};
-        console.log(values);
 
         for (const key in values) {
             const value = values[key];
@@ -97,26 +95,11 @@ export default function NoticesFilters() {
             }
         }
 
-        console.log(cleanedValues);
         dispatch(addParams(cleanedValues));
-        //  const res = fetchAllNotices(cleanedValues);
-        //  dispatch(addResults(res));
+        dispatch(setPage(1)); // при смене фильтров — на 1 страницу
 
-        const getResults = async () => {
-            try {
-                const res = await fetchAllNotices(cleanedValues);
-                dispatch(addResults(res.results));
-            } catch (error) {
-                console.error('Помилка завантаження результатів:', error);
-            }
-        };
-
-        getResults();
-
-        console.log(values);
         actions.resetForm();
     };
-    //   console.log(typeof categories);
 
     return (
         <div className={css.noticesFiltersContainer}>
