@@ -119,11 +119,8 @@ export default function NoticesItem({ notice }) {
                         <div className={css.titlePopularityWrap}>
                             <h2 className={css.title}>{title}</h2>
                             <div className={css.popularityBlock}>
-                                <div className={css.starWrap}>
-                                    {' '}
-                                    <FaStar className={css.star} />
-                                </div>
-                                {popularity}
+                                <p className={css.heartSym}>❤️</p>
+                                <p>{popularity}</p>
                             </div>
                         </div>
                         {/* <p className={css.text}>{text}</p> */}

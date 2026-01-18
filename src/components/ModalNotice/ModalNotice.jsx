@@ -91,7 +91,7 @@ export default function ModalNotice({ isOpen, onClose, data }) {
                     </div>
                     <div className={css.titlePopularity}>
                         <h2 className={css.someTitle}>{data.title}</h2>
-                        <p>popularity: {data.popularity}</p>
+                        <p>❤️ {data.popularity}</p>
                     </div>
                     <div className={css.fullDataContainer}>
                         <div className={css.petInfoContainer}>

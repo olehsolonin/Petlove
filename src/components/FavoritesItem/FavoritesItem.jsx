@@ -71,7 +71,10 @@ export default function FavoritesItem({ data }) {
                     <div className={css.justInfo}>
                         <div className={css.titlePopularityContainer}>
                             <h3 className={css.petTitle}>{title}</h3>
-                            <p className={css.popularity}>❤️ {popularity}</p>
+                            <div className={css.popularitySymContainer}>
+                                <p className={css.popularity}>❤️</p>
+                                <p>{popularity}</p>
+                            </div>
                         </div>
                         <div className={css.petDetails}>
                             <div className={css.petDetailItem}>
