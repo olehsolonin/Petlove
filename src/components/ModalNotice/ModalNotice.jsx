@@ -19,7 +19,7 @@ export default function ModalNotice({ isOpen, onClose, data }) {
     const dispatch = useDispatch();
 
     const favoritesPetsId = useSelector(
-        (state) => state.userInfo.noticesFavorites
+        (state) => state.userInfo.noticesFavorites,
     );
 
     const currentFavPetsId = favoritesPetsId.map((pet) => {
@@ -138,9 +138,23 @@ export default function ModalNotice({ isOpen, onClose, data }) {
                                 <CiHeart className={css.heartButton} />
                             </span>
                         </button>
-                        <button className={css.contactBtn} type="button">
+                        {/* <button className={css.contactBtn} type="button">
                             Contact
-                        </button>
+                        </button> */}
+                        <div className={css.contactDataContainer}>
+                            <a
+                                href={`mailto:${data.user.email}`}
+                                className={css.userDataLinks}
+                            >
+                                {data.user.email}
+                            </a>
+                            <a
+                                href={`tel:${data.user.phone}`}
+                                className={css.userDataLinks}
+                            >
+                                {data.user.phone}
+                            </a>
+                        </div>
                     </div>
                     <button className={css.closeBtnContainer} onClick={onClose}>
                         <IoClose className={css.closeIconBtn} />

@@ -1,7 +1,7 @@
 .modalContainer {
     border-radius: 30px;
     width: 335px;
-    height: 476px;
+    height: 550px;
     background: #fff;
     padding: 40px 28px;
     position: relative;
@@ -131,14 +131,14 @@
     height: 44px;
     display: flex;
     gap: 10px;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
 }
 
 .addBtn {
     border-radius: 30px;
     padding: 12px 31px;
-    width: 135px;
+    width: 279px;
     height: 44px;
     background: #f6b83d;
     font-weight: 500;
@@ -188,4 +188,30 @@
     height: 12px;
     stroke-width: 2px;
     stroke: #262626;
+}
+
+.contactDataContainer {
+    width: 279px;
+    height: 44px;
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+}
+
+.userDataLinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    padding: 10px;
+    width: 134px;
+    height: 44px;
+    background: #f6b83d;
+    color: #fff;
 }
