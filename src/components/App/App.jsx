@@ -12,10 +12,12 @@ import ProfilePage from '../../pages/ProfilePage/profilePage.jsx';
 import AddPetPage from '../../pages/AddPetPage/AddPetPage.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import Header from '../Header/Header.jsx';
 
 function App() {
     return (
         <div className={css.container}>
+            {/* <Header /> */}
             <Routes>
                 <Route path="/" element={<MainPage />} />
                 <Route path="/home" element={<HomePage />} />
@@ -28,6 +30,7 @@ function App() {
                 <Route path="/add-pet" element={<AddPetPage />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
+            <div id="burger-root" />
             <ToastContainer
                 position="top-center"
                 autoClose={3000}

@@ -1,12 +1,12 @@
 .newsContainer {
-  min-width: 320px;
-  max-width: 374px;
-  height: 2766px;
-  padding: 34px 20px 80px 20px;
-  background: #f9f9f9;
+    min-width: 320px;
+    max-width: 374px;
+    height: 2766px;
+    padding: 34px 20px 80px 20px;
+    background: #f9f9f9;
 }
 
 .titleContainer {
-  margin-top: 60px;
-  margin-bottom: 20px;
+    margin-top: 60px;
+    margin-bottom: 20px;
 }

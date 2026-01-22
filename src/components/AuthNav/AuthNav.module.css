@@ -1,0 +1,47 @@
+.auth {
+    margin-top: auto; /* ✅ прижимаем блок авторизации вниз */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 8px;
+}
+
+.login,
+.register {
+    width: 200px;
+    height: 44px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+
+    text-decoration: none;
+    transition:
+        transform 150ms ease,
+        filter 150ms ease;
+}
+
+.login:hover,
+.login:focus,
+.register:hover,
+.register:focus {
+    transform: translateY(-1px);
+}
+
+.login {
+    background: #f6b83d;
+    color: #ffffff;
+    border: 1px solid transparent;
+}
+
+.register {
+    background: rgba(246, 184, 61, 0.18);
+    color: #f6b83d;
+    border: 1px solid rgba(246, 184, 61, 0.35);
+}
