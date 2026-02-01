@@ -8,7 +8,7 @@ import NewsPage from '../../pages/NewsPage/NewsPage.jsx';
 import FriendsPage from '../../pages/FriendsPage/FriendsPage.jsx';
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage.jsx';
 import NoticesPage from '../../pages/NoticesPage/NoticesPage.jsx';
-import ProfilePage from '../../pages/ProfilePage/profilePage.jsx';
+import ProfilePage from '../../pages/ProfilePage/ProfilePage.jsx';
 import AddPetPage from '../../pages/AddPetPage/AddPetPage.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
