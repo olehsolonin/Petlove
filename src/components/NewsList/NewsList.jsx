@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 export default function NewsList() {
   const news = useSelector((state) => state.news.items); // Получаем новости из store
-  console.log("news из store:", news);
+  // console.log("news из store:", news);
   //   news.forEach((item, index) => console.log(`Элемент ${index}:`, item));
 
   return (

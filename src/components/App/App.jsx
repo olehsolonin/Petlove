@@ -1,5 +1,5 @@
 import css from './App.module.css';
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import MainPage from '../../pages/MainPage/MainPage.jsx';
 import HomePage from '../../pages/HomePage/HomePage.jsx';
 import LoginPage from '../../pages/LoginPage/LoginPage.jsx';

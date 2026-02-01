@@ -2,7 +2,6 @@ import Modal from 'react-modal';
 import css from './ModalNotice.module.css';
 import { CiHeart } from 'react-icons/ci';
 import { IoClose } from 'react-icons/io5';
-import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
     fetchAddToFavourites,
@@ -14,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { userDataAll } from '../../redux/userInfoSlice.js';
 
 export default function ModalNotice({ isOpen, onClose, data }) {
-    console.log(data);
+    // console.log(data);
     const token = useSelector((state) => state.auth.token);
     const dispatch = useDispatch();
 
@@ -25,10 +24,10 @@ export default function ModalNotice({ isOpen, onClose, data }) {
     const currentFavPetsId = favoritesPetsId.map((pet) => {
         return pet._id;
     });
-    console.log(currentFavPetsId);
+    // console.log(currentFavPetsId);
 
     const isFavourite = currentFavPetsId.includes(data?._id);
-    console.log(isFavourite);
+    // console.log(isFavourite);
     const refreshUser = async () => {
         const fresh = await fetchFullUserInfo(token);
         dispatch(userDataAll(fresh));
@@ -46,9 +45,9 @@ export default function ModalNotice({ isOpen, onClose, data }) {
                 await refreshUser();
                 onClose();
             }
-            console.log(res);
+            // console.log(res);
         } catch (error) {
-            console.log(error);
+            console.error('Failed to add to favorites:', error);
         }
     };
     const removeFavourite = async () => {
@@ -62,10 +61,10 @@ export default function ModalNotice({ isOpen, onClose, data }) {
                 });
                 await refreshUser();
                 onClose();
-                console.log(res);
+                // console.log(res);
             }
         } catch (error) {
-            console.log(error);
+            console.error('Failed to remove from favorites:', error);
         }
     };
 

@@ -8,8 +8,8 @@ export default function PetsItem({ pets }) {
     const dispatch = useDispatch();
     const token = useSelector((state) => state.auth.token);
     const handleSubmit = async (petId) => {
-        console.log(token);
-        console.log('PetID:', petId);
+        // console.log(token);
+        // console.log('PetID:', petId);
         const res = await fetchDeletePet(petId, token);
         dispatch(userDataPets(res));
     };
@@ -17,12 +17,10 @@ export default function PetsItem({ pets }) {
     const {
         imgURL,
         title,
-        createdAt,
         birthday,
         name,
         sex,
         species,
-        updatedAt,
         _id,
     } = pets; // Деструктуризируем внутри
     //   console.log(title);

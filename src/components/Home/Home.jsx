@@ -1,9 +1,6 @@
 import css from './Home.module.css';
-import { Routes, Route, NavLink } from 'react-router-dom';
-// import Header from "../Header/Header.jsx";
 import homePhoto1x from '../../img/homePhoto-1x.jpg';
 import homePhoto2x from '../../img/homePhoto-2x.jpg';
-import { FaHeart } from 'react-icons/fa6';
 import Header from '../Header/Header';
 
 export default function Home() {

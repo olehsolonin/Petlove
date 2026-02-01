@@ -1,14 +1,17 @@
 .background {
-  background-image: image-set(
-    url("../../img/mainBGI.jpg") 1x,
-    url("../../img/mainBGI-2x.jpg") 2x
-  );
+  background-image: url("../../img/mainBGI.jpg");
   background-size: cover;
   background-position: center;
   height: 812px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (min-resolution: 2dppx) {
+  .background {
+    background-image: url("../../img/mainBGI-2x.jpg");
+  }
 }
 
 .mainTitle {

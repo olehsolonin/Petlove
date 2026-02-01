@@ -2,7 +2,7 @@ import Modal from 'react-modal';
 import css from './ModalAttention.module.css';
 import petIcon from '../../img/modalAttentionIcon-1x.png';
 import { IoClose } from 'react-icons/io5';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function ModalAttention({ isOpen, onClose }) {
     const navigate = useNavigate();

@@ -18,7 +18,7 @@ export const fetchNews = async ({ keyword = "", page = 1, limit = 5 } = {}) => {
 export const fetchFriends = async () => {
 	const response = await axios.get(`/friends`);
 	// const response = await axios.get(`?${params}`);
-	console.log(response.data);
+	// console.log(response.data);
 	return response.data;
 };
 
@@ -76,7 +76,7 @@ export const fetchFullUserInfo = async (someToken) => {
 			Authorization: `Bearer ${someToken}`,
 		},
 	});
-	console.log(response.data);
+	// console.log(response.data);
 	return response.data;
 };
 
@@ -92,7 +92,7 @@ export const fetchEditUser = async (userData, someToken) => {
 			Authorization: `Bearer ${someToken}`,
 		},
 	});
-	console.log(response);
+	// console.log(response);
 	return response;
 };
 
@@ -102,19 +102,19 @@ export const fetchAddPet = async (petData, someToken) => {
 			Authorization: `Bearer ${someToken}`,
 		},
 	});
-	console.log(response.data);
+	// console.log(response.data);
 	return response.data;
 
 };
 
 export const fetchSignOut = async (someToken) => {
-	console.log(someToken);
+	// console.log(someToken);
 	const response = await axios.post(`/users/signout`, null, {
 		headers: {
 			Authorization: `Bearer ${someToken}`,
 		},
 	});
-	console.log(response.data);
+	// console.log(response.data);
 	return response.data;
 }
 
@@ -125,7 +125,7 @@ export const fetchDeletePet = async (id, someToken) => {
 				Authorization: `Bearer ${someToken}`,
 			},
 		});
-		console.log(response.data);
+		// console.log(response.data);
 		return response.data.pets;
 	} catch (error) {
 		console.error('Error deleting pet:', error);
@@ -139,7 +139,7 @@ export const fetchFullPetInfoById = async (id, someToken) => {
 			Authorization: `Bearer ${someToken}`,
 		},
 	});
-	console.log(response.data);
+	// console.log(response.data);
 	return response.data;
 }
 
@@ -149,7 +149,7 @@ export const fetchAddToFavourites = async (id, someToken) => {
 			Authorization: `Bearer ${someToken}`,
 		},
 	});
-	console.log(response.data);
+	// console.log(response.data);
 	return response;
 }
 
@@ -157,6 +157,6 @@ export const fetchRemoveFromFavourites = async (id, someToken) => {
 	const response = await axios.delete(`/notices/favorites/remove/${id}`, {
 		headers: { Authorization: `Bearer ${someToken}`, },
 	});
-	console.log(response);
+	// console.log(response);
 	return response;
 }

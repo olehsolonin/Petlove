@@ -16,8 +16,6 @@ export default function FavoritesItem({ data }) {
     const dispatch = useDispatch();
     const token = useSelector((state) => state.auth.token);
 
-    const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-
     const [isNoticeModalOpen, setIsNoticeModalOpen] = useState(false);
     const [details, setDetails] = useState(null);
     const {
@@ -25,15 +23,11 @@ export default function FavoritesItem({ data }) {
         title,
         category,
         comment,
-        createdAt,
         imgURL,
-        location,
         name,
         popularity,
         sex,
         species,
-        updatedAt,
-        user,
         _id,
         price,
     } = data;
@@ -56,8 +50,8 @@ export default function FavoritesItem({ data }) {
             const res = await fetchFullPetInfoById(_id, token);
             setDetails(res);
             setIsNoticeModalOpen(true);
-        } catch (err) {
-            console.log('Error loading details:', err);
+        } catch (error) {
+            console.error('Error loading details:', error);
         }
     };
 

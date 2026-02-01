@@ -1,5 +1,4 @@
 import css from './NoticesItem.module.css';
-import { FaStar } from 'react-icons/fa';
 import { CiHeart } from 'react-icons/ci';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -37,17 +36,15 @@ export default function NoticesItem({ notice }) {
             const res = await fetchFullPetInfoById(_id, token);
             setDetails(res);
             setIsNoticeModalOpen(true);
-        } catch (err) {
-            console.log('Error loading details:', err);
+        } catch (error) {
+            console.error('Error loading details:', error);
         }
     };
 
     const {
         imgURL,
         title,
-        date,
         comment,
-        url,
         popularity,
         birthday,
         name,
@@ -62,10 +59,10 @@ export default function NoticesItem({ notice }) {
     const currentFavPetsId = favoritesPetsId.map((pet) => {
         return pet._id;
     });
-    console.log(currentFavPetsId);
+    // console.log(currentFavPetsId);
 
     const isFavourite = currentFavPetsId.includes(_id);
-    console.log(isFavourite);
+    // console.log(isFavourite);
 
     const refreshUser = async () => {
         const fresh = await fetchFullUserInfo(token);
@@ -83,9 +80,9 @@ export default function NoticesItem({ notice }) {
                 });
                 await refreshUser();
             }
-            console.log(res);
+            // console.log(res);
         } catch (error) {
-            console.log(error);
+            console.error('Failed to add to favorites:', error);
         }
     };
     const removeFavourite = async () => {
@@ -98,10 +95,10 @@ export default function NoticesItem({ notice }) {
                     position: 'top-center',
                 });
                 await refreshUser();
-                console.log(res);
+                // console.log(res);
             }
         } catch (error) {
-            console.log(error);
+            console.error('Failed to remove from favorites:', error);
         }
     };
 

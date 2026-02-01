@@ -1,7 +1,7 @@
 import { Formik, Form, Field } from 'formik';
 import css from './LoginForm.module.css';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import Title from '../Title/Title';
 import { fetchSignin } from '../../fetchReq.js';
@@ -31,12 +31,12 @@ export default function LoginForm() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const handleSubmit = (values, actions) => {
-        console.log('Form Submitted', values);
+        // console.log('Form Submitted', values);
         const loginFetch = async () => {
             try {
                 const response = await fetchSignin(values);
                 if (response.status === 200) {
-                    console.log('Login successful:', response.data);
+                    // console.log('Login successful:', response.data);
                     const userData = response.data;
                     dispatch(
                         login({

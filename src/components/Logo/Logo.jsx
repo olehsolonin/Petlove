@@ -1,6 +1,6 @@
 import css from "./Logo.module.css";
 import { FaHeart } from "react-icons/fa6";
-import { Routes, Route, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Logo() {
   return (

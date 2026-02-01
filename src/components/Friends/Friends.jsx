@@ -1,6 +1,5 @@
 import css from "./Friends.module.css";
 import FriendsList from "../FriendsList/FriendsList.jsx";
-import FriendsItem from "../FriendsItem/FriendsItem.jsx";
 import Header from "../Header/Header.jsx";
 import Title from "../Title/Title.jsx";
 

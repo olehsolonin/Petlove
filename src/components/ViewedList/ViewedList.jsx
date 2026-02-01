@@ -4,7 +4,7 @@ import ViewedItem from '../ViewedItem/ViewedItem.jsx';
 
 export const ViewedList = () => {
     const viewed = useSelector((state) => state.userInfo.noticesViewed);
-    console.log('viewed из store:', viewed);
+    // console.log('viewed из store:', viewed);
     return (
         <div className={css.viewedListContainer}>
             {viewed.length > 0 ? (

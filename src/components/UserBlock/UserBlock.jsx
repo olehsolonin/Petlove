@@ -1,6 +1,6 @@
 import css from "./UserBlock.module.css";
 import { IoPersonSharp } from "react-icons/io5";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function UserBlock() {
   const userName = useSelector((state) => state.userInfo.name);

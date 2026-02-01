@@ -1,5 +1,4 @@
 import css from './SearchField.module.css';
-import { useDispatch } from 'react-redux';
 import { IoIosSearch } from 'react-icons/io';
 import { useState } from 'react';
 
@@ -11,7 +10,6 @@ export default function SearchField({
     onSubmitOutside, // колбек для submit, если нужно обработать снаружи
 }) {
     const [localValue, setLocalValue] = useState('');
-    const dispatch = useDispatch();
 
     const handleChange = (e) => {
         const val = e.target.value;

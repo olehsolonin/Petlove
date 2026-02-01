@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 export default function NoticesList() {
   const notices = useSelector((state) => state.notices.results.results);
-  console.log("news из store:", notices);
+  // console.log("news из store:", notices);
 
   return (
     //  <ul className={css.list}>

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 export default function PetsList() {
     const userPetsData = useSelector((state) => state.userInfo.pets);
-    console.log('news из store:', userPetsData);
+    // console.log('news из store:', userPetsData);
     return (
         <div className={css.petsListContainer}>
             {userPetsData.length > 0 ? (

@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import { NavLink, useNavigate } from "react-router-dom";
 import Title from "../Title/Title.jsx";
 import { fetchSignup } from "../../fetchReq.js";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login } from "../../redux/authSlice.js";
 import registrationMob2x from "../../img/registration-mob-2x.png";
 
@@ -42,7 +42,7 @@ export default function Registration() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    console.log("Form Submitted", values);
+    // console.log("Form Submitted", values);
     const cleanedRegisterData = {};
     for (const key in values) {
       if (key !== "confirmPassword") {
@@ -53,11 +53,11 @@ export default function Registration() {
     const postSignup = async () => {
       try {
         const res = await fetchSignup(cleanedRegisterData);
-        console.log(res);
+        // console.log(res);
         if (res.status === 201) {
           const userData = res.data;
-          console.log(userData);
-          console.log("User successfully registered");
+          // console.log(userData);
+          // console.log("User successfully registered");
           dispatch(
             login({
               user: {

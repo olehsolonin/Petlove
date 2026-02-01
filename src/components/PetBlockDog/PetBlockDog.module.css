@@ -4,14 +4,17 @@
 }
 
 .background {
-  background-image: image-set(
-    url("../../img/login-mob-1x.jpg") 1x,
-    url("../../img/login-mob-2x.jpg") 2x
-  );
+  background-image: url("../../img/login-mob-1x.jpg");
   background-size: cover;
   background-position: center;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (min-resolution: 2dppx) {
+  .background {
+    background-image: url("../../img/login-mob-2x.jpg");
+  }
 }

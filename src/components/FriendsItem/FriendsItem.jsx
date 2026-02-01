@@ -1,7 +1,7 @@
 import css from "./FriendsItem.module.css";
 
 export default function FriendsItem({ friends }) {
-  const { address, addressUrl, email, imageUrl, phone, title, url } = friends;
+  const { address, addressUrl, email, imageUrl, phone, title } = friends;
   return (
     <div className={css.friendsItem}>
       <img src={imageUrl} alt="" className={css.logoContainer} />

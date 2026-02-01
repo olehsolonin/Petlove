@@ -1,4 +1,4 @@
-import Select, { components } from "react-select";
+import Select from "react-select";
 import { useField, useFormikContext } from "formik";
 import { useSelector } from "react-redux";
 import { useState } from "react";
@@ -47,7 +47,7 @@ const LocationSelect = ({ name }) => {
           DropdownIndicator: () => null, // 🔥 Удаляет стрелочку
         }}
         styles={{
-          control: (base, state) => ({
+          control: (base) => ({
             ...base,
             borderRadius: "30px",
             // padding: "8px 12px",

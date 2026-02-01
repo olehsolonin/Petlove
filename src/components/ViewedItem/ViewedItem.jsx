@@ -1,22 +1,11 @@
 import css from './ViewedItem.module.css';
-import { RiDeleteBin5Line } from 'react-icons/ri';
-import {
-    fetchRemoveFromFavourites,
-    fetchFullUserInfo,
-} from '../../fetchReq.js';
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { userDataNoticesFavorites } from '../../redux/userInfoSlice.js';
+import { useSelector } from 'react-redux';
 import ModalNotice from '../ModalNotice/ModalNotice.jsx';
 import { fetchFullPetInfoById } from '../../fetchReq.js';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 export default function ViewedItem({ data }) {
-    const dispatch = useDispatch();
     const token = useSelector((state) => state.auth.token);
-
-    const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
     const [isNoticeModalOpen, setIsNoticeModalOpen] = useState(false);
     const [details, setDetails] = useState(null);
@@ -25,15 +14,11 @@ export default function ViewedItem({ data }) {
         title,
         category,
         comment,
-        createdAt,
         imgURL,
-        location,
         name,
         popularity,
         sex,
         species,
-        updatedAt,
-        user,
         _id,
         price,
     } = data;
@@ -56,8 +41,8 @@ export default function ViewedItem({ data }) {
             const res = await fetchFullPetInfoById(_id, token);
             setDetails(res);
             setIsNoticeModalOpen(true);
-        } catch (err) {
-            console.log('Error loading details:', err);
+        } catch (error) {
+            console.error('Error loading details:', error);
         }
     };
 

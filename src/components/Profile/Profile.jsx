@@ -2,11 +2,10 @@ import css from './Profile.module.css';
 import UserCard from '../UserCard/UserCard.jsx';
 import MyNotices from '../MyNotices/MyNotices.jsx';
 import Header from '../Header/Header.jsx';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchFullUserInfo } from '../../fetchReq.js';
 import {
-    userDataAll,
     userDataID,
     userDataName,
     userDataEmail,
@@ -18,7 +17,6 @@ import {
     userDataPets,
     userDataCreatedAt,
     userDataUpdatedAt,
-    userDataClear,
 } from '../../redux/userInfoSlice.js';
 
 export default function Profile() {

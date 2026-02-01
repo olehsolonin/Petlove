@@ -2,7 +2,7 @@ import css from './EditUserBtn.module.css';
 import { IoPersonSharp } from 'react-icons/io5';
 import { FiEdit2 } from 'react-icons/fi';
 import { useSelector, useDispatch } from 'react-redux';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Modal from 'react-modal';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
@@ -11,19 +11,10 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { IoCloudUploadOutline } from 'react-icons/io5';
 import { fetchEditUser } from '../../fetchReq';
 import {
-    userDataAll,
-    userDataID,
     userDataName,
     userDataEmail,
     userDataAvatar,
     userDataPhone,
-    userDataToken,
-    userDataNoticesViewed,
-    userDataNoticesFavorites,
-    userDataPets,
-    userDataCreatedAt,
-    userDataUpdatedAt,
-    userDataClear,
 } from '../../redux/userInfoSlice.js';
 
 const FeedbackSchema = Yup.object().shape({
@@ -67,7 +58,7 @@ export default function EditUserBtn() {
     };
 
     const handleSubmit = (values, actions) => {
-        console.log(values);
+        // console.log(values);
 
         const userEditFetch = async () => {
             try {
@@ -82,15 +73,14 @@ export default function EditUserBtn() {
                     dispatch(userDataEmail(res.email));
                     dispatch(userDataAvatar(res.avatar));
                     dispatch(userDataPhone(res.phone));
-                    console.log('User information updated successfully');
+                    // console.log('User information updated successfully');
                     toast.success('Profile updated successfully', {
                         position: 'top-center',
                     });
                     setIsOpen(false);
                     actions.resetForm();
                 }
-            } catch (error) {
-                console.log(error);
+            } catch {
                 toast.error('Profile update failed', {
                     position: 'top-center',
                 });

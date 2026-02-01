@@ -1,5 +1,4 @@
 import css from "./PetBlockDog.module.css";
-import React from "react";
 
 // export default function PetBlockDog() {
 //   return (

@@ -64,13 +64,12 @@ export default function AddPetForm() {
         species: '',
     };
 
-    const handleSubmit = (values, actions) => {
+    const handleSubmit = (values) => {
         //   const currentToken = useSelector((state) => state.auth.token);
-        console.log(values);
+        // console.log(values);
         const addNewPet = async () => {
             try {
-                const response = await fetchAddPet(values, currentToken);
-                console.log('Pet added successfully:', response);
+                await fetchAddPet(values, currentToken);
                 navigate('/profile', { replace: true });
             } catch (error) {
                 console.error('Error adding pet:', error);

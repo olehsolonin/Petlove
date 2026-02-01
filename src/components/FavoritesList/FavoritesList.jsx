@@ -4,7 +4,7 @@ import FavoritesItem from '../FavoritesItem/FavoritesItem.jsx';
 
 export const FavoritesList = () => {
     const favorites = useSelector((state) => state.userInfo.noticesFavorites);
-    console.log('favorites из store:', favorites);
+    // console.log('favorites из store:', favorites);
     return (
         <div className={css.favoritesListContainer}>
             {favorites.length > 0 ? (
