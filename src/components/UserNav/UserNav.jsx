@@ -1,11 +1,12 @@
+import css from './UserNav.module.css';
 import LogOutBtn from '../LogOutBtn/LogOutBtn';
 import UserBar from '../UserBar/UserBar';
 import React from 'react';
 
-export default function UserNav({ onNavigate }) {
+export default function UserNav() {
     return (
-        <div>
-            <UserBar onNavigate={onNavigate} />
+        <div className={css.userNavCoantainer}>
+            <UserBar />
             <LogOutBtn />
         </div>
     );

@@ -10,8 +10,7 @@
     top: 0;
     right: 0;
     height: 100%; /* ✅ вместо 100dvh, чтобы брать высоту контейнера */
-    width: 218px;
-    background: #fff;
+    background: #f6b83d;
     padding: 28px 20px 40px 20px;
     display: flex;
     flex-direction: column;
@@ -25,11 +24,12 @@
     padding: 6px;
     cursor: pointer;
     margin-bottom: 176px;
+    color: #fff;
 }
 
 .content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 28px;
+    gap: 280px;
 }

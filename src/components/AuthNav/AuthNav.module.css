@@ -1,5 +1,5 @@
 .auth {
-    margin-top: auto; /* ✅ прижимаем блок авторизации вниз */
+    margin-top: auto;
     display: flex;
     flex-direction: column;
     align-items: center;

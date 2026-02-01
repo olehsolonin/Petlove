@@ -1,0 +1,13 @@
+.profileLink {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 30px;
+    padding: 12px;
+    width: 178px;
+    height: 42px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: #fff;
+}
