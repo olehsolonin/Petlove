@@ -5,8 +5,8 @@
 
 .background {
   background-image: image-set(
-    url("/src/img/login-mob-1x.jpg") 1x,
-    url("/src/img/login-mob-2x.jpg") 2x
+    url("../../img/login-mob-1x.jpg") 1x,
+    url("../../img/login-mob-2x.jpg") 2x
   );
   background-size: cover;
   background-position: center;

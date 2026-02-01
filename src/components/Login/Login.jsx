@@ -3,6 +3,7 @@ import LogoBlack from "../LogoBlack/LogoBlack.jsx";
 import Header from "../Header/Header.jsx";
 import PetBlockDog from "../PetBlockDog/PetBlockDog.jsx";
 import LoginForm from "../LoginForm/LoginForm.jsx";
+import loginMob2x from "../../img/login-mob-2x.jpg";
 
 export default function Login() {
   return (
@@ -11,7 +12,7 @@ export default function Login() {
         <Header />
       </div>
       <div className={css.imageWrapperContainer}>
-        <PetBlockDog src="/src/img/login-mob-2x.jpg" width={335} height={280} />
+        <PetBlockDog src={loginMob2x} width={335} height={280} />
       </div>
       <div className={css.loginFormContainer}>
         <LoginForm />

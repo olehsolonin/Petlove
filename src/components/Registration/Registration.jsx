@@ -8,6 +8,7 @@ import Title from "../Title/Title.jsx";
 import { fetchSignup } from "../../fetchReq.js";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../../redux/authSlice.js";
+import registrationMob2x from "../../img/registration-mob-2x.png";
 
 const initialValues = {
   name: "",
@@ -85,7 +86,7 @@ export default function Registration() {
       </div>
       <div className={css.imageWrapperContainer}>
         <PetBlockDog
-          src="/src/img/registration-mob-2x.png"
+          src={registrationMob2x}
           width={335}
           height={280}
         />
