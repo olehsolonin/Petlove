@@ -20,6 +20,7 @@ export default function LogOutBtn() {
     const handleSubmit = async () => {
         try {
             await fetchSignOut(token);
+            console.log('Salam');
         } catch (error) {
             console.error('Error during logout:', error);
             toast.error('Error during logout', { position: 'top-center' });
