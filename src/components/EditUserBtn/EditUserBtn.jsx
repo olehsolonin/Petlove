@@ -26,14 +26,14 @@ const FeedbackSchema = Yup.object().shape({
     email: Yup.string()
         .matches(
             /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
-            'Must be a valid email!'
+            'Must be a valid email!',
         )
         .required('Required'),
 
     avatar: Yup.string()
         .matches(
             /^https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp)$/,
-            'Must be a valid image URL!'
+            'Must be a valid image URL!',
         )
         .required('Required'),
 
@@ -48,6 +48,7 @@ export default function EditUserBtn() {
     const userAvatar = useSelector((state) => state.userInfo.avatar);
     const userEmail = useSelector((state) => state.userInfo.email);
     const userPhone = useSelector((state) => state.userInfo.phone);
+    const token = useSelector((state) => state.auth.token);
     const [isOpen, setIsOpen] = useState(false);
 
     const initialValues = {
@@ -62,10 +63,7 @@ export default function EditUserBtn() {
 
         const userEditFetch = async () => {
             try {
-                const response = await fetchEditUser(
-                    values,
-                    localStorage.getItem('token')
-                );
+                const response = await fetchEditUser(values, token);
                 //   console.log(response);
                 if (response.status === 200) {
                     const res = response.data;

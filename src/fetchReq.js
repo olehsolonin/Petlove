@@ -87,6 +87,7 @@ export const fetchSignin = async (userData) => {
 };
 
 export const fetchEditUser = async (userData, someToken) => {
+	// console.log(someToken);
 	const response = await axios.patch(`/users/current/edit`, userData, {
 		headers: {
 			Authorization: `Bearer ${someToken}`,
